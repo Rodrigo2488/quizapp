@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel de Administração - eQuizz</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-container { max-width: 900px; margin: 2rem auto; padding: 2rem; background: #f9f9f9; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+    .admin-title { text-align: center; color: #007bff; margin-bottom: 2rem; font-size: 2rem; }
+    .admin-menu { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .admin-menu button { padding: 1rem; font-size: 1.1rem; border: none; border-radius: 8px; background-color: #3f3f3f; color: white; cursor: pointer; transition: background 0.3s; }
+    .admin-menu button:hover { background-color: #4338ca; }
+    .admin-section { display: none; }
+    .admin-section.active { display: block; margin-top: 2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+    .options-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .option-item { display: flex; align-items: center; gap: 0.5rem; }
+    .option-item input[type="text"] { flex: 1; }
+    input, textarea, select { padding: 0.5rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; }
+    #image-gallery { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem; }
+    #image-gallery img { width: 80px; height: 80px; object-fit: cover; border: 2px solid transparent; border-radius: 8px; cursor: pointer; transition: border 0.3s; }
+    #image-gallery img.selected { border: 2px solid #007bff; }
+    .dropdown { position: relative; display: inline-block; width: 100%; }
+    .dropdown-button { padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; background: #fff; }
+    .dropdown-content { display: none; position: absolute; background: #fff; border: 1px solid #ccc; border-radius: 6px; max-height: 200px; overflow-y: auto; z-index: 10; width: 100%; }
+    .dropdown-content.active { display: block; }
+    .dropdown-content div { padding: 0.5rem; cursor: pointer; }
+    .dropdown-content div:hover { background: #f0f0f0; }
+    .dropdown-content div.selected { background: #007bff; color: white; }
+  </style>
+</head>
+<body>
+
+<div class="admin-container">
+  <h2 class="admin-title">Painel de Administração</h2>
+
+  <!-- MENU -->
+  <div class="admin-menu">
+    <button onclick="showSection('add-category')">➕ Adicionar novas categorias</button>
+    <button onclick="showSection('add-question')">➕ Adicionar novas perguntas</button>
+    <button onclick="window.location.href='edit.html'">📄 Página de Edição</button>
+    <button onclick="showSection('add-image')">🖼️ Adicionar novas imagens</button>
+  </div>
+
+  <!-- ÁREAS -->
+  <div id="add-category" class="admin-section">
+    <h3>Adicionar Nova Categoria</h3>
+    <form id="form-add-category">
+      <div class="form-group">
+        <input type="text" id="cat-name" placeholder="Nome da Categoria" required>
+        <textarea id="cat-description" placeholder="Descrição da Categoria" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Selecione uma Imagem</label>
+        <div id="image-gallery"></div>
+        <input type="hidden" id="cat-image" required>
+      </div>
+      <button type="submit">Salvar Categoria</button>
+    </form>
+  </div>
+
+  <div id="add-question" class="admin-section">
+    <h3>Adicionar Nova Pergunta</h3>
+    <form id="form-add-question">
+      <div class="form-group">
+        <input type="text" id="question-text" placeholder="Texto da Pergunta" required>
+      </div>
+
+      <div class="form-group options-group">
+        <div class="option-item">
+          <input type="radio" name="answer" id="answer-0" value="0" required>
+          <input type="text" id="option1" placeholder="Alternativa 1" required>
+        </div>
+        <div class="option-item">
+          <input type="radio" name="answer" id="answer-1" value="1">
+          <input type="text" id="option2" placeholder="Alternativa 2" required>
+        </div>
+        <div class="option-item">
+          <input type="radio" name="answer" id="answer-2" value="2">
+          <input type="text" id="option3" placeholder="Alternativa 3" required>
+        </div>
+        <div class="option-item">
+          <input type="radio" name="answer" id="answer-3" value="3">
+          <input type="text" id="option4" placeholder="Alternativa 4" required>
+        </div>
+      </div>
+
+      <div class="form-group dropdown">
+        <div class="dropdown-button" onclick="toggleCategoryOptions()" id="category-button">Selecione Categorias</div>
+        <div class="dropdown-content" id="category-options"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="difficulty">Selecione a dificuldade</label>
+        <select id="difficulty" required>
+          <option value="fácil">Fácil</option>
+          <option value="normal">Normal</option>
+          <option value="difícil">Difícil</option>
+          <option value="especialista">Especialista</option>
+        </select>
+      </div>
+
+      <button type="submit">Salvar Pergunta</button>
+    </form>
+  </div>
+
+  <div id="add-image" class="admin-section">
+    <h3>Adicionar Nova Imagem</h3>
+    <form id="form-add-image" enctype="multipart/form-data">
+      <div class="form-group">
+        <input type="file" id="image-file" name="image" accept="image/*" required>
+      </div>
+      <button type="submit">Salvar Imagem</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (id === 'add-category') loadImageGallery();
+    if (id === 'add-question') loadQuestionHelpers();
+  }
+
+  function toggleCategoryOptions() {
+    document.getElementById('category-options').classList.toggle('active');
+  }
+
+  async function loadImageGallery() {
+    const res = await fetch('/api/images');
+    const images = await res.json();
+    const gal = document.getElementById('image-gallery');
+    gal.innerHTML = '';
+    images.forEach(img => {
+      const i = document.createElement('img');
+      i.src = img;
+      i.alt = img.split('/').pop();
+      i.onclick = () => {
+        document.getElementById('cat-image').value = img;
+        document.querySelectorAll('#image-gallery img').forEach(x => x.classList.remove('selected'));
+        i.classList.add('selected');
+      };
+      gal.appendChild(i);
+    });
+  }
+
+  function loadQuestionHelpers() {
+    loadCategories();
+  }
+
+  async function loadCategories() {
+    const res = await fetch('/api/categories');
+    const categories = await res.json();
+    const opts = document.getElementById('category-options');
+    opts.innerHTML = '';
+    categories.forEach(cat => {
+      const d = document.createElement('div');
+      d.textContent = cat.name;
+      d.dataset.id = cat.id;
+      d.onclick = () => d.classList.toggle('selected');
+      opts.appendChild(d);
+    });
+  }
+
+  document.getElementById('form-add-question').addEventListener('submit', async e => {
+    e.preventDefault();
+    const question = document.getElementById('question-text').value.trim();
+    const options = [
+      document.getElementById('option1').value,
+      document.getElementById('option2').value,
+      document.getElementById('option3').value,
+      document.getElementById('option4').value
+    ];
+    const answerInput = document.querySelector('input[name="answer"]:checked');
+    const answer = answerInput ? parseInt(answerInput.value) : NaN;
+    const categoryIds = Array.from(document.querySelectorAll('#category-options div.selected')).map(d => parseInt(d.dataset.id));
+    const difficulty = document.getElementById('difficulty').value;
+    if (!question || options.some(opt => !opt) || isNaN(answer) || categoryIds.length === 0 || !difficulty) {
+      return alert('Preencha todos os campos!');
+    }
+    const res = await fetch('/api/questions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question, options, answer, categoryIds, difficulty })
+    });
+    if (res.ok) {
+      alert('Pergunta adicionada!');
+      document.getElementById('form-add-question').reset();
+      document.getElementById('category-button').textContent = 'Selecione Categorias';
+      document.querySelectorAll('#category-options div').forEach(d => d.classList.remove('selected'));
+    } else alert('Erro!');
+  });
+
+  document.getElementById('form-add-image').addEventListener('submit', async e => {
+    e.preventDefault();
+    const fd = new FormData();
+    fd.append('image', document.getElementById('image-file').files[0]);
+    const res = await fetch('/api/upload',{method:'POST',body:fd});
+    if(res.ok) alert('Imagem enviada!'); else alert('Erro no upload');
+  });
+
+  // ✅ Função para salvar nova categoria
+  document.getElementById('form-add-category').addEventListener('submit', async e => {
+    e.preventDefault();
+    const name = document.getElementById('cat-name').value.trim();
+    const description = document.getElementById('cat-description').value.trim();
+    const image = document.getElementById('cat-image').value.trim();
+    if (!name || !description || !image) {
+      return alert('Preencha todos os campos!');
+    }
+    const res = await fetch('/api/categories', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, description, image })
+    });
+    if (res.ok) {
+      alert('Categoria adicionada!');
+      document.getElementById('form-add-category').reset();
+      document.querySelectorAll('#image-gallery img').forEach(i => i.classList.remove('selected'));
+    } else {
+      alert('Erro ao adicionar categoria!');
+    }
+  });
+
+  loadImageGallery();
+</script>
+
+</body>
+</html>

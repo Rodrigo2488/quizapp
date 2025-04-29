@@ -1,0 +1,1412 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Conhecimentos Gerais",
+      "description": "Teste seus conhecimentos sobre diversos assuntos.",
+      "image": "/categorias/Conhecimentos_gerais.svg"
+    },
+    {
+      "id": 2,
+      "name": "Ciências",
+      "description": "Perguntas sobre biologia, física, química e os fenômenos que regem o mundo ao nosso redor.",
+      "image": "/categorias/Ciencias.svg"
+    },
+    {
+      "id": 3,
+      "name": "Geografia",
+      "description": "Perguntas sobre países, capitais, relevo, clima e os principais fenômenos naturais do planeta.",
+      "image": "/categorias/geografia1745775149144.png"
+    },
+    {
+      "id": 4,
+      "name": "Historia",
+      "image": "/categorias/historia_1745952366908.png",
+      "description": "Perguntas sobre eventos marcantes, civilizações antigas e fatos que moldaram o mundo."
+    },
+    {
+      "id": 5,
+      "name": "Entretenimento",
+      "image": "/categorias/marketing-de-video_1745957288592.png",
+      "description": "Perguntas sobre filmes, música, TV, games e curiosidades do mundo do entretenimento."
+    },
+    {
+      "id": 6,
+      "name": "Filosofia",
+      "image": "/categorias/filosofia_1745957700352.png",
+      "description": "Perguntas sobre filosofias e ideias que moldaram a civilização humana."
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "Qual é a capital do Brasil?",
+      "options": [
+        "Rio de Janeiro",
+        "São Paulo",
+        "Brasília",
+        "Salvador"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        1,
+        3
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 2,
+      "question": "Qual o elemento químico representado pelo símbolo 'O'?",
+      "options": [
+        "Oxigênio",
+        "Ouro",
+        "Prata",
+        "Zinco"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        1,
+        2
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 3,
+      "question": "Qual planeta é conhecido como o planeta vermelho?",
+      "options": [
+        "Terra",
+        "Marte",
+        "Vênus",
+        "Júpiter"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        1,
+        2
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 4,
+      "question": "Em que continente está localizado o Deserto do Saara?",
+      "options": [
+        "Ásia",
+        "América do Sul",
+        "África",
+        "Oceania"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        1,
+        3
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 5,
+      "question": "Quem pintou a obra 'Mona Lisa'?",
+      "options": [
+        "Pablo Picasso",
+        "Vincent van Gogh",
+        "Leonardo da Vinci",
+        "Claude Monet"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        1
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 6,
+      "question": "Qual é o maior oceano do mundo?",
+      "options": [
+        "Atlântico",
+        "Índico",
+        "Ártico",
+        "Pacífico"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        1,
+        3
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 7,
+      "question": "Qual elemento químico é representado pelo símbolo 'O'?",
+      "options": [
+        "Ouro",
+        "Oxigênio",
+        "Ósmio",
+        "Ozônio"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        1,
+        2
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 8,
+      "question": "Em que país se localiza a cidade de Machu Picchu?",
+      "options": [
+        "México",
+        "Peru",
+        "Chile",
+        "Bolívia"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        1,
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 9,
+      "question": "Quantos elementos existem atualmente na tabela periódica?",
+      "options": [
+        "108",
+        "114",
+        "118",
+        "121"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 10,
+      "question": "Qual é o país mais populoso do mundo?",
+      "options": [
+        "Índia",
+        "China",
+        "Estados Unidos",
+        "Indonésia"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        1,
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 11,
+      "question": "Qual cientista desenvolveu a teoria da relatividade?",
+      "options": [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Galileu Galilei",
+        "Marie Curie"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        1,
+        2
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 12,
+      "question": "Qual é a capital da Austrália?",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Brisbane"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        1,
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 13,
+      "question": "Qual é o nome da camada da atmosfera que protege a Terra dos raios ultravioletas?",
+      "options": [
+        "Troposfera",
+        "Estratosfera",
+        "Camada de Ozônio",
+        "Ionosfera"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "especialista"
+    },
+    {
+      "id": 14,
+      "question": "Qual é o maior órgão do corpo humano?",
+      "options": [
+        "Fígado",
+        "Pele",
+        "Coração",
+        "Cérebro"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        1,
+        2
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 15,
+      "question": "Em que país nasceu o filósofo Nietzsche?",
+      "options": [
+        "França",
+        "Alemanha",
+        "Grécia",
+        "Itália"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        1
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 16,
+      "question": "Qual é a unidade de medida da intensidade de corrente elétrica?",
+      "options": [
+        "Volts",
+        "Ohms",
+        "Amperes",
+        "Watts"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 17,
+      "question": "Qual o processo pelo qual as plantas produzem seu alimento usando luz solar?",
+      "options": [
+        "Fotossíntese",
+        "Respiração",
+        "Transpiração",
+        "Fermentação"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 18,
+      "question": "Qual gás é mais abundante na atmosfera terrestre?",
+      "options": [
+        "Oxigênio",
+        "Dióxido de carbono",
+        "Nitrogênio",
+        "Hélio"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 19,
+      "question": "Quem formulou as três leis do movimento?",
+      "options": [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Galileu Galilei",
+        "Nikola Tesla"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 20,
+      "question": "Qual é o principal componente do gás natural?",
+      "options": [
+        "Propano",
+        "Butano",
+        "Metano",
+        "Etano"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 21,
+      "question": "Qual instrumento é usado para medir a pressão atmosférica?",
+      "options": [
+        "Barômetro",
+        "Termômetro",
+        "Higrômetro",
+        "Anemômetro"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 22,
+      "question": "O que é um isótopo?",
+      "options": [
+        "Átomos com elétrons extras",
+        "Moléculas com elétrons ausentes",
+        "Átomos do mesmo elemento com massas diferentes",
+        "Moléculas do mesmo composto com fórmulas diferentes"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 23,
+      "question": "Qual fenômeno óptico causa arco-íris?",
+      "options": [
+        "Difração",
+        "Refração e dispersão da luz",
+        "Interferência",
+        "Polarização"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 24,
+      "question": "Qual é a velocidade aproximada da luz no vácuo?",
+      "options": [
+        "300.000 km/s",
+        "150.000 km/s",
+        "1.080.000 km/s",
+        "30.000 km/s"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 25,
+      "question": "Qual parte do átomo contém prótons e nêutrons?",
+      "options": [
+        "Núcleo",
+        "Elétrons",
+        "Camada de valência",
+        "Orbitais"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 26,
+      "question": "O que mede a escala Richter?",
+      "options": [
+        "Intensidade de furacões",
+        "Magnitude de terremotos",
+        "Força de vulcões",
+        "Precipitação"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 27,
+      "question": "Qual é o principal mineral que compõe o calcário?",
+      "options": [
+        "Quartzo",
+        "Calcita",
+        "Gipsita",
+        "Mica"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 28,
+      "question": "Qual organela é responsável pela produção de energia nas células?",
+      "options": [
+        "Mitocôndria",
+        "Ribossomo",
+        "Lisossomo",
+        "Cloroplasto"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 29,
+      "question": "Em qual camada da Terra se encontra o núcleo externo?",
+      "options": [
+        "Crosta",
+        "Manto",
+        "Núcleo externo",
+        "Núcleo interno"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 30,
+      "question": "Qual elemento químico tem número atômico 6?",
+      "options": [
+        "Carbono",
+        "Oxigênio",
+        "Nitrogênio",
+        "Sódio"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        2
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 31,
+      "question": "Qual país é conhecido como \"Terra do Sol Nascente\"?",
+      "options": [
+        "França",
+        "Noruega",
+        "China",
+        "Japão"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        1,
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 32,
+      "question": "Qual é a capital da India?",
+      "options": [
+        "Sydney",
+        "Maharashtra",
+        "Uttar Pradesh",
+        "Nova Délhi"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        1,
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 33,
+      "question": "Qual placa tectônica é responsável pelos terremotos no Japão?",
+      "options": [
+        "Placa Norte-americana",
+        "Placa Eurasiática",
+        "Placa Indo-Australiana",
+        "Placa do Pacífico"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        1,
+        2,
+        3
+      ],
+      "difficulty": "especialista"
+    },
+    {
+      "id": 34,
+      "question": "Qual filósofo é conhecido pela frase \"Penso, logo existo\"?",
+      "options": [
+        "Friedrich Nietzsche",
+        "Immanuel Kant",
+        "René Descartes",
+        "Jean-Paul Sartre"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 35,
+      "question": "O que a \"Alegoria da Caverna\", de Platão, pretende ilustrar?",
+      "options": [
+        "A importância da democracia",
+        "A diferença entre o mundo sensível e o mundo das ideias",
+        "A teoria do contrato social",
+        "A crítica ao materialismo dialético"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 36,
+      "question": "Qual corrente filosófica defende que a existência precede a essência?",
+      "options": [
+        "Estoicismo",
+        "Existencialismo",
+        "Utilitarismo",
+        "Empirismo"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 37,
+      "question": "Qual país é cortado pela Linha do Equador e pelo Trópico de Capricórnio?",
+      "options": [
+        "México",
+        "Índia",
+        "Brasil",
+        "Austrália"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        3
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 38,
+      "question": "Quem compôs a Nona Sinfonia, conhecida por incluir \"Ode à Alegria\"?",
+      "options": [
+        "Mozart",
+        "Bach",
+        "Beethoven",
+        "Chopin"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 39,
+      "question": "Qual tratado pôs fim à Primeira Guerra Mundial?",
+      "options": [
+        "Tratado de Versalhes",
+        "Tratado de Tordesilhas",
+        "Paz de Westfália",
+        "Acordo de Bretton Woods"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 40,
+      "question": "Qual filósofo afirmou que ",
+      "options": [
+        "Aristóteles",
+        "Pitágoras",
+        "Heráclito",
+        "Platão"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 41,
+      "question": "Qual cidade é conhecida como \"Big Apple\"?",
+      "options": [
+        "Los Angeles",
+        "Chicago",
+        "Nova York",
+        "Miami"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        3
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 42,
+      "question": "Qual ator interpretou Tony Stark/Iron Man no Universo Cinematográfico Marvel?",
+      "options": [
+        "Chris Evans",
+        "Robert Downey Jr.",
+        "Chris Hemsworth",
+        "Mark Ruffalo"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 43,
+      "question": "Quem foi o primeiro homem a pisar na Lua?",
+      "options": [
+        "Yuri Gagarin",
+        "Neil Armstrong",
+        "Buzz Aldrin",
+        "Alan Shepard"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 44,
+      "question": "Qual conceito filosófico é associado a Immanuel Kant?",
+      "options": [
+        "Imperativo Categórico",
+        "Dialética",
+        "Super-Homem",
+        "Mito da Caverna"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 45,
+      "question": "Qual país não faz parte do Reino Unido?",
+      "options": [
+        "Escócia",
+        "Irlanda do Norte",
+        "País de Gales",
+        "Irlanda"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 46,
+      "question": "Qual diretor dirigiu \"O Poderoso Chefão\"?",
+      "options": [
+        "Martin Scorsese",
+        "Steven Spielberg",
+        "Francis Ford Coppola",
+        "Quentin Tarantino"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 47,
+      "question": "Qual foi o evento que desencadeou a Primeira Guerra Mundial?",
+      "options": [
+        "Invasão da Polônia",
+        "Assassinato do Arquiduque Franz Ferdinand",
+        "Bomba de Hiroshima",
+        "Queda da Bolsa de Nova York"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 48,
+      "question": "Qual filósofo escreveu \"O Príncipe\"?",
+      "options": [
+        "Maquiavel",
+        "Voltaire",
+        "Rousseau",
+        "Montesquieu"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        6,
+        4
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 49,
+      "question": "Qual é o maior lago em volume de água do mundo?",
+      "options": [
+        "Lago Vitória",
+        "Lago Superior",
+        "Lago Baikal",
+        "Mar Cáspio"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        3
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 50,
+      "question": "Qual cantor é conhecido como \"Rei do Pop\"?",
+      "options": [
+        "Elvis Presley",
+        "Michael Jackson",
+        "Prince",
+        "Justin Timberlake"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 51,
+      "question": "Qual é a cachoeira mais alta do mundo?",
+      "options": [
+        "Angel Falls (Venezuela)",
+        "Niagara Falls (EUA/Canadá)",
+        "Victoria Falls (Zâmbia/Zimbábue)",
+        "Iguaçu (Brasil/Argentina)"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 52,
+      "question": "Quem foi o cientista que descobriu a penicilina?",
+      "options": [
+        "Louis Pasteur",
+        "Alexander Fleming",
+        "Marie Curie",
+        "Albert Einstein"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        2,
+        4
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 53,
+      "question": "Qual foi o primeiro filme de animação da Disney?",
+      "options": [
+        "Branca de Neve e os Sete Anões",
+        "Cinderela",
+        "Pinóquio",
+        "Fantasia"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 54,
+      "question": "Qual filósofo escreveu \"Assim Falou Zaratustra\"?",
+      "options": [
+        "Søren Kierkegaard",
+        "Friedrich Nietzsche",
+        "Jean-Paul Sartre",
+        "Arthur Schopenhauer"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 55,
+      "question": "Qual país tem como capital a cidade de Islamabad?",
+      "options": [
+        "Índia",
+        "Paquistão",
+        "Bangladesh",
+        "Afeganistão"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 56,
+      "question": "Qual imperador romano ficou conhecido por incendiar Roma e culpar os cristãos?",
+      "options": [
+        "Calígula",
+        "Nero",
+        "Trajano",
+        "Marco Aurélio"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 57,
+      "question": "Qual cantor é conhecido como \"Rei do Rock\"?",
+      "options": [
+        "Elvis Presley",
+        "Freddie Mercury",
+        "John Lennon",
+        "Mick Jagger"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 58,
+      "question": "Qual filósofo grego fundou a escola filosófica chamada Academia?",
+      "options": [
+        "Aristóteles",
+        "Sócrates",
+        "Platão",
+        "Pitágoras"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 59,
+      "question": "Qual é o único país da América do Sul que não tem litoral?",
+      "options": [
+        "Paraguai",
+        "Bolívia",
+        "Suíça",
+        "Nepal"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        3
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 60,
+      "question": "Qual evento histórico marcou o início da Idade Contemporânea?",
+      "options": [
+        "Queda do Império Romano",
+        "Revolução Francesa",
+        "Queda da Bastilha",
+        "Revolução Industrial"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 61,
+      "question": "Qual atriz ganhou o Oscar por seu papel em \"La La Land\"?",
+      "options": [
+        "Emma Stone",
+        "Jennifer Lawrence",
+        "Natalie Portman",
+        "Meryl Streep"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 62,
+      "question": "Qual conceito filosófico é associado a Descartes?",
+      "options": [
+        "Inatismo",
+        "Racionalismo",
+        "Empirismo",
+        "Ceticismo"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 63,
+      "question": "Qual é o nome da cordilheira que separa a Europa da Ásia?",
+      "options": [
+        "Alpes",
+        "Himalaia",
+        "Montanhas Rochosas",
+        "Urais"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 64,
+      "question": "Quem foi o líder da Revolução Cubana?",
+      "options": [
+        "Che Guevara",
+        "Fidel Castro",
+        "Hugo Chávez",
+        "Simón Bolívar"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 65,
+      "question": "Qual banda lançou o álbum \"Bohemian Rhapsody\"?",
+      "options": [
+        "The Beatles",
+        "Led Zeppelin",
+        "Queen",
+        "Pink Floyd"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 66,
+      "question": "Qual filósofo é conhecido pela máxima \"Conhece-te a ti mesmo\"?",
+      "options": [
+        "Platão",
+        "Aristóteles",
+        "Sócrates",
+        "Epicuro"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 67,
+      "question": "Qual país é o maior produtor mundial de petróleo?",
+      "options": [
+        "Estados Unidos",
+        "Rússia",
+        "Arábia Saudita",
+        "Venezuela"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        3
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 68,
+      "question": "Qual imperador mongol conquistou grande parte da Ásia no século XIII?",
+      "options": [
+        "Kublai Khan",
+        "Gengis Khan",
+        "Atila",
+        "Napoleão"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 69,
+      "question": "Qual filme é baseado no livro de J.R.R. Tolkien \"O Senhor dos Anéis\"?",
+      "options": [
+        "Harry Potter",
+        "Crônicas de Nárnia",
+        "O Hobbit",
+        "Trilogia dirigida por Peter Jackson"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 70,
+      "question": "Qual filósofo defendeu a ideia de que \"a propriedade privada é um roubo\"?",
+      "options": [
+        "Karl Marx",
+        "Pierre-Joseph Proudhon",
+        "Adam Smith",
+        "John Stuart Mill"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "especialista"
+    },
+    {
+      "id": 71,
+      "question": "Qual foi o primeiro filme a ganhar o Oscar de Melhor Filme?",
+      "options": [
+        "Asas (1927)",
+        "Cidadão Kane",
+        "Casablanca",
+        "E o Vento Levou"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 72,
+      "question": "Qual filósofo defendeu a ideia de \"estado de natureza\" como guerra constante?",
+      "options": [
+        "John Locke",
+        "Thomas Hobbes",
+        "Jean-Jacques Rousseau",
+        "Montesquieu"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6,
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 73,
+      "question": "Qual evento histórico ficou conhecido como \"Noite das Facas Longas\"?",
+      "options": [
+        "Expurgo de Hitler contra a SA em 1934",
+        "Revolução dos Cravos em Portugal",
+        "Golpe Militar no Brasil em 1964",
+        "Queda de Robespierre na França"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "especialista"
+    },
+    {
+      "id": 74,
+      "question": "Qual série de TV é baseada nos livros de George R.R. Martin?",
+      "options": [
+        "The Witcher",
+        "Game of Thrones",
+        "Outlander",
+        "Vikings"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 75,
+      "question": "Qual filósofo escreveu \"Crítica da Razão Pura\"?",
+      "options": [
+        "Immanuel Kant",
+        "Friedrich Hegel",
+        "Arthur Schopenhauer",
+        "Søren Kierkegaard"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 76,
+      "question": "Quem foi o líder da Revolução Haitiana, a primeira rebelião escrava bem-sucedida?",
+      "options": [
+        "Toussaint Louverture",
+        "Simón Bolívar",
+        "Che Guevara",
+        "Napoleão Bonaparte"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 77,
+      "question": "Qual ator interpretou o personagem Jack Sparrow em \"Piratas do Caribe\"?",
+      "options": [
+        "Orlando Bloom",
+        "Johnny Depp",
+        "Geoffrey Rush",
+        "Javier Bardem"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 78,
+      "question": "Qual conceito filosófico é associado à máxima \"O fim justifica os meios\"?",
+      "options": [
+        "Utilitarismo",
+        "Maquiavelismo",
+        "Estoicismo",
+        "Existencialismo"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6,
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 79,
+      "question": "Qual imperatriz russa ficou conhecida como 'A Grande'?",
+      "options": [
+        "Ana Ivanovna",
+        "Isabel I",
+        "Catarina II",
+        "Maria Teresa"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 80,
+      "question": "Qual cantora lançou o álbum \"Lemonade\" em 2016?",
+      "options": [
+        "Rihanna",
+        "Beyoncé",
+        "Taylor Swift",
+        "Adele"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 81,
+      "question": "Qual filósofo grego fundou o Estoicismo?",
+      "options": [
+        "Zenão de Cítio",
+        "Epicuro",
+        "Sêneca",
+        "Marco Aurélio"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 82,
+      "question": "Qual foi o primeiro país a conceder o direito de voto às mulheres?",
+      "options": [
+        "Estados Unidos",
+        "Nova Zelândia",
+        "Reino Unido",
+        "Finlândia"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 83,
+      "question": "Qual diretor dirigiu \"Tubarão\" e \"Jurassic Park\"?",
+      "options": [
+        "Steven Spielberg",
+        "George Lucas",
+        "James Cameron",
+        "Ridley Scott"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 84,
+      "question": "Qual filósofo é conhecido por sua teoria do \"Eterno Retorno\"?",
+      "options": [
+        "Friedrich Nietzsche",
+        "Albert Camus",
+        "Jean-Paul Sartre",
+        "Sigmund Freud"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 85,
+      "question": "Qual conflito foi travado entre Atenas e Esparta na Grécia Antiga?",
+      "options": [
+        "Guerra Púnica",
+        "Guerra do Peloponeso",
+        "Guerras Médicas",
+        "Guerra de Troia"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 86,
+      "question": "Qual atriz interpretou a Rainha Elizabeth II em \"The Crown\"?",
+      "options": [
+        "Helena Bonham Carter",
+        "Olivia Colman",
+        "Claire Foy",
+        "Emma Corrin"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 87,
+      "question": "Qual filósofo iluminista escreveu \"Ensaio sobre a Inteligência Humana\"?",
+      "options": [
+        "Voltaire",
+        "John Locke",
+        "Denis Diderot",
+        "David Hume"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6,
+        4
+      ],
+      "difficulty": "especialista"
+    },
+    {
+      "id": 88,
+      "question": "Qual cidade foi capital do Império Asteca?",
+      "options": [
+        "Cusco",
+        "Tenochtitlán",
+        "Machu Picchu",
+        "Teotihuacán"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        4
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 89,
+      "question": "Qual banda britânica foi liderada por Freddie Mercury?",
+      "options": [
+        "The Rolling Stones",
+        "Led Zeppelin",
+        "Queen",
+        "Pink Floyd"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        5
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 90,
+      "question": "Qual filósofo propôs a ideia de \"inconsciente coletivo\"?",
+      "options": [
+        "Sigmund Freud",
+        "Carl Jung",
+        "Friedrich Nietzsche",
+        "Michel Foucault"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        6
+      ],
+      "difficulty": "difícil"
+    }
+  ]
+}

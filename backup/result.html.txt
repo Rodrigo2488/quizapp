@@ -1,0 +1,130 @@
+<!-- result.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resultado</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e; /* Preto um pouco mais claro */
+      color: white;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    #result-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #007bff; /* Azul */
+      margin-bottom: 10px;
+    }
+
+    .acertos {
+      font-size: 20px;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .retangulo {
+      background-color: #000; /* Preto intenso */
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      font-size: 20px;
+      color: #007bff;
+    }
+
+    .qi-container {
+      background-color: #000;
+      border-radius: 10px;
+      padding: 20px;
+      border-top: 4px solid #007bff;
+    }
+
+    .qi-label {
+      font-size: 20px;
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    .qi-value {
+      font-size: 46px;
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .qi-delta {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .finalizar-btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .finalizar-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="result-container">
+    <h1>Resultado</h1>
+    <div class="acertos" id="acertos-text"></div>
+
+    <div class="retangulo" id="feedback-text"></div>
+
+    <div class="qi-container">
+      <div class="qi-label">Seu Q.I. agora é:</div>
+      <div class="qi-value" id="qi-score">0</div>
+      <div class="qi-delta" id="qi-delta"></div>
+    </div>
+
+    <button class="finalizar-btn" onclick="window.location.href='index.html'">Finalizar Quiz</button>
+  </div>
+
+  <script>
+    const acertos = parseInt(localStorage.getItem('acertos')) || 0;
+    const total = parseInt(localStorage.getItem('total')) || 0;
+    const qiAtual = parseInt(localStorage.getItem('qiAtual')) || 0;
+    const delta = parseInt(localStorage.getItem('delta')) || 0;
+
+    document.getElementById('acertos-text').textContent = `Você acertou ${acertos} de ${total} perguntas`;
+
+    const feedback = document.getElementById('feedback-text');
+    const ratio = acertos / total;
+
+    if (acertos === total) {
+      feedback.textContent = 'Parabéns! Você acertou todas as perguntas!';
+    } else if (ratio >= 0.7) {
+      feedback.textContent = 'Muito bem! Você mandou super bem!';
+    } else if (ratio >= 0.4) {
+      feedback.textContent = 'Você acertou uma boa parte, continue praticando!';
+    } else {
+      feedback.textContent = 'Você pode melhorar. Tente novamente!';
+    }
+
+    document.getElementById('qi-score').textContent = qiAtual;
+
+    const deltaText = document.getElementById('qi-delta');
+    deltaText.textContent = `${delta >= 0 ? '+' : ''}${delta}`;
+    deltaText.style.color = delta >= 0 ? 'limegreen' : 'red';
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eQuizz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>eQuizz</h1>
+      <div id="qi-display">
+        <span>Q.I.</span> <span id="qi-value">...</span>
+      </div>
+    </header>
+
+    <!-- Barra de pesquisa -->
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar categorias..." id="search-input" />
+      <button id="search-btn">🔍︎</button>
+    </div>
+
+    <main>
+      <!-- Seção de categorias -->
+      <section class="categories">
+        <h2>Categorias</h2>
+        <div id="categories-container">
+          <!-- Os cartões de categorias serão carregados aqui dinamicamente -->
+          <div class="category-card">
+            <div class="category-image">
+              <img src="https://via.placeholder.com/80" alt="Imagem Categoria 1" />
+            </div>
+            <h3>Categoria 1</h3>
+            <p>Descrição da categoria 1.</p>
+            <span>10 Perguntas</span>
+          </div>
+          <div class="category-card">
+            <div class="category-image">
+              <img src="https://via.placeholder.com/80" alt="Imagem Categoria 2" />
+            </div>
+            <h3>Categoria 2</h3>
+            <p>Descrição da categoria 2.</p>
+            <span>8 Perguntas</span>
+          </div>
+          <!-- Adicione mais cartões conforme necessário -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

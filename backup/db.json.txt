@@ -1,0 +1,410 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Conhecimentos Gerais",
+      "description": "Teste seus conhecimentos sobre diversos assuntos.",
+      "image": "/categorias/Conhecimentos_gerais.svg",
+      "questionCount": 15
+    },
+    {
+      "id": 2,
+      "name": "Ciências",
+      "description": "Questões de biologia, química, física e geociências.",
+      "image": "/categorias/Ciencias.svg",
+      "questionCount": 15
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "Qual é a capital do Brasil?",
+      "options": [
+        "São Paulo",
+        "Rio de Janeiro",
+        "Brasília",
+        "Belo Horizonte"
+      ],
+      "answer": 2,
+      "difficulty": "fácil",
+      "categoryIds": [1]
+    },
+    {
+      "id": 2,
+      "question": "Qual o elemento químico representado pelo símbolo 'O'?",
+      "options": [
+        "Oxigênio",
+        "Ouro",
+        "Prata",
+        "Zinco"
+      ],
+      "answer": 0,
+      "difficulty": "fácil",
+      "categoryIds": [1, 2]
+    },
+    {
+      "id": 3,
+      "question": "Quem escreveu 'Dom Casmurro'?",
+      "options": [
+        "Machado de Assis",
+        "José de Alencar",
+        "Carlos Drummond",
+        "Clarice Lispector"
+      ],
+      "answer": 0,
+      "difficulty": "normal",
+      "categoryIds": [1]
+    },
+    {
+      "id": 4,
+      "question": "Em que ano ocorreu a Proclamação da República no Brasil?",
+      "options": [
+        "1889",
+        "1822",
+        "1922",
+        "1891"
+      ],
+      "answer": 0,
+      "difficulty": "normal",
+      "categoryIds": [1]
+    },
+    {
+      "id": 5,
+      "question": "Qual planeta do sistema solar é conhecido como 'gigante gasoso'?",
+      "options": [
+        "Marte",
+        "Júpiter",
+        "Saturno",
+        "Netuno"
+      ],
+      "answer": 1,
+      "difficulty": "fácil",
+      "categoryIds": [1, 2]
+    },
+    {
+      "id": 6,
+      "question": "Qual é o valor aproximado de π (pi)?",
+      "options": [
+        "3,14",
+        "2,72",
+        "1,62",
+        "4,13"
+      ],
+      "answer": 0,
+      "difficulty": "fácil",
+      "categoryIds": [1, 2]
+    },
+    {
+      "id": 7,
+      "question": "Quem pintou a obra 'Guernica'?",
+      "options": [
+        "Leonardo da Vinci",
+        "Pablo Picasso",
+        "Van Gogh",
+        "Monet"
+      ],
+      "answer": 1,
+      "difficulty": "difícil",
+      "categoryIds": [1]
+    },
+    {
+      "id": 8,
+      "question": "Qual é o país com a maior população do mundo?",
+      "options": [
+        "Índia",
+        "Estados Unidos",
+        "China",
+        "Indonésia"
+      ],
+      "answer": 2,
+      "difficulty": "normal",
+      "categoryIds": [1]
+    },
+    {
+      "id": 9,
+      "question": "Em qual continente fica a cordilheira do Himalaia?",
+      "options": [
+        "Ásia",
+        "Europa",
+        "América",
+        "África"
+      ],
+      "answer": 0,
+      "difficulty": "normal",
+      "categoryIds": [1]
+    },
+    {
+      "id": 10,
+      "question": "Qual é a fórmula química da água?",
+      "options": [
+        "H2O",
+        "CO2",
+        "NaCl",
+        "O2"
+      ],
+      "answer": 0,
+      "difficulty": "fácil",
+      "categoryIds": [1, 2]
+    },
+    {
+      "id": 11,
+      "question": "Quem foi o primeiro presidente do Brasil?",
+      "options": [
+        "Getúlio Vargas",
+        "Marechal Deodoro da Fonseca",
+        "Juscelino Kubitschek",
+        "Pedro II"
+      ],
+      "answer": 1,
+      "difficulty": "difícil",
+      "categoryIds": [1]
+    },
+    {
+      "id": 12,
+      "question": "Qual o idioma oficial da Suíça?",
+      "options": [
+        "Alemão",
+        "Francês",
+        "Italiano",
+        "Todos os anteriores"
+      ],
+      "answer": 3,
+      "difficulty": "difícil",
+      "categoryIds": [1]
+    },
+    {
+      "id": 13,
+      "question": "Quem descobriu a penicilina?",
+      "options": [
+        "Alexander Fleming",
+        "Marie Curie",
+        "Pasteur",
+        "Newton"
+      ],
+      "answer": 0,
+      "difficulty": "normal",
+      "categoryIds": [1, 2]
+    },
+    {
+      "id": 14,
+      "question": "Qual é o maior oceano do planeta?",
+      "options": [
+        "Atlântico",
+        "Índico",
+        "Ártico",
+        "Pacífico"
+      ],
+      "answer": 3,
+      "difficulty": "fácil",
+      "categoryIds": [1, 2]
+    },
+    {
+      "id": 15,
+      "question": "Em que país nasceu o filósofo Nietzsche?",
+      "options": [
+        "França",
+        "Alemanha",
+        "Grécia",
+        "Itália"
+      ],
+      "answer": 1,
+      "difficulty": "difícil",
+      "categoryIds": [1]
+    },
+    {
+      "id": 16,
+      "question": "Qual é a unidade de medida da intensidade de corrente elétrica?",
+      "options": [
+        "Volts",
+        "Ohms",
+        "Amperes",
+        "Watts"
+      ],
+      "answer": 2,
+      "difficulty": "normal",
+      "categoryIds": [2]
+    },
+    {
+      "id": 17,
+      "question": "Qual o processo pelo qual as plantas produzem seu alimento usando luz solar?",
+      "options": [
+        "Fotossíntese",
+        "Respiração",
+        "Transpiração",
+        "Fermentação"
+      ],
+      "answer": 0,
+      "difficulty": "fácil",
+      "categoryIds": [2]
+    },
+    {
+      "id": 18,
+      "question": "Qual gás é mais abundante na atmosfera terrestre?",
+      "options": [
+        "Oxigênio",
+        "Dióxido de carbono",
+        "Nitrogênio",
+        "Hélio"
+      ],
+      "answer": 2,
+      "difficulty": "normal",
+      "categoryIds": [2]
+    },
+    {
+      "id": 19,
+      "question": "Quem formulou as três leis do movimento?",
+      "options": [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Galileu Galilei",
+        "Nikola Tesla"
+      ],
+      "answer": 1,
+      "difficulty": "difícil",
+      "categoryIds": [2]
+    },
+    {
+      "id": 20,
+      "question": "Qual é o principal componente do gás natural?",
+      "options": [
+        "Propano",
+        "Butano",
+        "Metano",
+        "Etano"
+      ],
+      "answer": 2,
+      "difficulty": "normal",
+      "categoryIds": [2]
+    },
+    {
+      "id": 21,
+      "question": "Qual instrumento é usado para medir a pressão atmosférica?",
+      "options": [
+        "Barômetro",
+        "Termômetro",
+        "Higrômetro",
+        "Anemômetro"
+      ],
+      "answer": 0,
+      "difficulty": "normal",
+      "categoryIds": [2]
+    },
+    {
+      "id": 22,
+      "question": "O que é um isótopo?",
+      "options": [
+        "Átomos com elétrons extras",
+        "Moléculas com elétrons ausentes",
+        "Átomos do mesmo elemento com massas diferentes",
+        "Moléculas do mesmo composto com fórmulas diferentes"
+      ],
+      "answer": 2,
+      "difficulty": "difícil",
+      "categoryIds": [2]
+    },
+    {
+      "id": 23,
+      "question": "Qual fenômeno óptico causa arco-íris?",
+      "options": [
+        "Difração",
+        "Refração e dispersão da luz",
+        "Interferência",
+        "Polarização"
+      ],
+      "answer": 1,
+      "difficulty": "normal",
+      "categoryIds": [2]
+    },
+    {
+      "id": 24,
+      "question": "Qual é a velocidade aproximada da luz no vácuo?",
+      "options": [
+        "300.000 km/s",
+        "150.000 km/s",
+        "1.080.000 km/s",
+        "30.000 km/s"
+      ],
+      "answer": 0,
+      "difficulty": "difícil",
+      "categoryIds": [2]
+    },
+    {
+      "id": 25,
+      "question": "Qual parte do átomo contém prótons e nêutrons?",
+      "options": [
+        "Núcleo",
+        "Elétrons",
+        "Camada de valência",
+        "Orbitais"
+      ],
+      "answer": 0,
+      "difficulty": "fácil",
+      "categoryIds": [2]
+    },
+    {
+      "id": 26,
+      "question": "O que mede a escala Richter?",
+      "options": [
+        "Intensidade de furacões",
+        "Magnitude de terremotos",
+        "Força de vulcões",
+        "Precipitação"
+      ],
+      "answer": 1,
+      "difficulty": "normal",
+      "categoryIds": [2]
+    },
+    {
+      "id": 27,
+      "question": "Qual é o principal mineral que compõe o calcário?",
+      "options": [
+        "Quartzo",
+        "Calcita",
+        "Gipsita",
+        "Mica"
+      ],
+      "answer": 1,
+      "difficulty": "normal",
+      "categoryIds": [2]
+    },
+    {
+      "id": 28,
+      "question": "Qual organela é responsável pela produção de energia nas células?",
+      "options": [
+        "Mitocôndria",
+        "Ribossomo",
+        "Lisossomo",
+        "Cloroplasto"
+      ],
+      "answer": 0,
+      "difficulty": "fácil",
+      "categoryIds": [2]
+    },
+    {
+      "id": 29,
+      "question": "Em qual camada da Terra se encontra o núcleo externo?",
+      "options": [
+        "Crosta",
+        "Manto",
+        "Núcleo externo",
+        "Núcleo interno"
+      ],
+      "answer": 2,
+      "difficulty": "difícil",
+      "categoryIds": [2]
+    },
+    {
+      "id": 30,
+      "question": "Qual elemento químico tem número atômico 6?",
+      "options": [
+        "Carbono",
+        "Oxigênio",
+        "Nitrogênio",
+        "Sódio"
+      ],
+      "answer": 0,
+      "difficulty": "fácil",
+      "categoryIds": [2]
+    }
+  ]
+}

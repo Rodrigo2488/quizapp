@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eQuizz</title>
+  <style>
+    /* Estilos básicos para o quiz */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    #quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #category-text {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #007bff;
+    }
+
+    /* Envolve o progresso */
+    #progress-wrapper {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #progress-text {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #383838;
+      color: white;
+      border-radius: 20px;
+      font-size: 16px;
+      animation: pulse 0.8s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombreamento */
+    }
+
+    #question-text {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .option-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #eee;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 6px; /* Fica mais bonito nos botões também */
+      transition: background-color 0.3s;
+    }
+
+    .option-btn:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div id="quiz-container">
+    <div id="category-text"></div> <!-- Exibição da categoria -->
+
+    <div id="progress-wrapper">
+      <div id="progress-text"></div> <!-- Exibição do progresso -->
+    </div>
+
+    <div id="question-text"></div> <!-- Exibição da pergunta -->
+    <div id="options-container"></div> <!-- Exibição das alternativas -->
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>

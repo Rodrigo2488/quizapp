@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editar Categorias - eQuizz</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilos rápidos para a página */
+    #edit-section {
+      background: #fff;
+      margin-top: 40px;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label, .form-group p {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+    .form-group input, 
+    .form-group textarea, 
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    /* ========================
+       Novos estilos para edição
+       de perguntas
+       ======================== */
+    .option-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .option-item input[type="text"] {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .option-item input[type="radio"] {
+      flex: 0 0 auto;
+    }
+    #edit-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+    #edit-categories label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      margin: 0;
+    }
+    /* ======================== */
+
+    #image-gallery-edit img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #image-gallery-edit img.selected {
+      border-color: #007bff;
+    }
+    .edit-buttons button, #save-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .edit-buttons button:hover, #save-btn:hover {
+      background-color: #0056b3;
+    }
+    #question-search {
+      margin-top: 20px;
+    }
+    .question-item {
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    #save-question-btn {
+      background-color: #ffc107;
+      color: #333;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #save-question-btn:hover {
+      background-color: #e0a800;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Editar Categorias</h1>
+    </header>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar categorias..." id="search-input" />
+      <button id="search-btn">🔍︎</button>
+    </div>
+
+    <main>
+      <section class="categories">
+        <h2>Categorias</h2>
+        <div id="categories-container"></div>
+      </section>
+
+      <section id="edit-section" style="display:none;">
+        <h2>Editar Categoria</h2>
+        <form id="edit-form">
+          <input type="hidden" id="edit-id" />
+
+          <div class="form-group">
+            <label for="edit-name">Nome:</label>
+            <input type="text" id="edit-name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="edit-description">Descrição:</label>
+            <textarea id="edit-description" rows="4" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <p>Imagem:</p>
+            <div id="image-gallery-edit"></div>
+            <input type="hidden" id="edit-image" required />
+          </div>
+
+          <div class="edit-buttons">
+            <button type="button" id="edit-questions-btn">Editar Perguntas</button>
+          </div>
+
+          <div id="question-search" style="display:none;">
+            <input type="text" id="search-questions-input" placeholder="Pesquisar perguntas..." />
+            <button type="button" id="question-search-btn">🔍︎</button>
+            <div id="question-list"></div>
+          </div>
+
+          <button type="submit" id="save-btn">Salvar Alterações</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const categoriesContainer = document.getElementById('categories-container');
+      const editSection = document.getElementById('edit-section');
+      const editForm = document.getElementById('edit-form');
+      const editId = document.getElementById('edit-id');
+      const editName = document.getElementById('edit-name');
+      const editDescription = document.getElementById('edit-description');
+      const editImageInput = document.getElementById('edit-image');
+      const galleryEdit = document.getElementById('image-gallery-edit');
+      const editQuestionsBtn = document.getElementById('edit-questions-btn');
+      const questionSearch = document.getElementById('question-search');
+      const questionSearchInput = document.getElementById('search-questions-input');
+      const questionSearchBtn = document.getElementById('question-search-btn');
+      const questionList = document.getElementById('question-list');
+
+      let categories = [];
+      let images = [];
+      let currentCatId = null;
+
+      async function loadCategories() {
+        const res = await fetch('/api/categories');
+        categories = await res.json();
+        renderCategories(categories);
+      }
+
+      function renderCategories(cats) {
+        categoriesContainer.innerHTML = '';
+        cats.forEach(cat => {
+          const card = document.createElement('div');
+          card.className = 'category-card';
+          card.innerHTML = `
+            <div class="category-image">
+              <img src="${cat.image}" alt="${cat.name}" />
+            </div>
+            <h3>${cat.name}</h3>
+            <p>${cat.description}</p>
+          `;
+          card.addEventListener('click', () => loadCategoryToEdit(cat));
+          categoriesContainer.appendChild(card);
+        });
+      }
+
+      async function loadImageGallery() {
+        const res = await fetch('/api/images');
+        images = await res.json();
+        galleryEdit.innerHTML = '';
+        images.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = src.split('/').pop();
+          img.addEventListener('click', () => selectImage(img, src));
+          galleryEdit.appendChild(img);
+        });
+      }
+
+      function selectImage(imgElement, src) {
+        editImageInput.value = src;
+        galleryEdit.querySelectorAll('img').forEach(i => i.classList.remove('selected'));
+        imgElement.classList.add('selected');
+      }
+
+      async function loadCategoryToEdit(category) {
+        currentCatId = category.id;
+        editId.value = category.id;
+        editName.value = category.name;
+        editDescription.value = category.description;
+        editSection.style.display = 'block';
+        await loadImageGallery();
+        const selectedImg = galleryEdit.querySelector(`img[src="${category.image}"]`);
+        if (selectedImg) selectImage(selectedImg, category.image);
+        questionSearch.style.display = 'none';
+        questionList.innerHTML = '';
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+
+      editQuestionsBtn.addEventListener('click', () => {
+        questionSearch.style.display = questionSearch.style.display === 'none' ? 'block' : 'none';
+      });
+
+      questionSearchBtn.addEventListener('click', async () => {
+        const term = questionSearchInput.value.toLowerCase();
+        const res = await fetch(`/api/questions?category=${currentCatId}`);
+        const qs = await res.json();
+        questionList.innerHTML = '';
+        qs.filter(q => q.question.toLowerCase().includes(term)).forEach(q => {
+          const div = document.createElement('div');
+          div.className = 'question-item';
+          div.textContent = q.question;
+          div.addEventListener('click', () => loadQuestionToEdit(q));
+          questionList.appendChild(div);
+        });
+      });
+
+      async function loadQuestionToEdit(question) {
+        questionList.innerHTML = '';
+
+        // cria form
+        const form = document.createElement('form');
+        form.id = 'question-edit-form';
+        form.style.marginTop = '20px';
+
+        // busca categorias
+        const categoriesRes = await fetch('/api/categories');
+        const categoriesData = await categoriesRes.json();
+
+        // garante array
+        const selectedCatIds = Array.isArray(question.categoryIds)
+          ? question.categoryIds
+          : [];
+
+        // monta alternativas (input primeiro, radio depois)
+        const optionsHTML = question.options.map((opt, i) => `
+          <div class="option-item">
+            <input 
+              type="text" 
+              name="option${i}" 
+              value="${opt}" 
+              placeholder="Alternativa ${i+1}" 
+              required
+            />
+            <input 
+              type="radio" 
+              name="correctOption" 
+              value="${i}" 
+              ${question.answer === i ? 'checked' : ''}
+            />
+          </div>
+        `).join('');
+
+        // monta categorias
+        const categoriesHTML = categoriesData.map(cat => `
+          <label>
+            <input 
+              type="checkbox" 
+              name="cat" 
+              value="${cat.id}" 
+              ${selectedCatIds.includes(cat.id) ? 'checked' : ''}
+            />
+            ${cat.name}
+          </label>
+        `).join('');
+
+        form.innerHTML = `
+          <div class="form-group">
+            <label>Pergunta:</label>
+            <input 
+              type="text" 
+              name="questionText" 
+              value="${question.question}" 
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Alternativas:</label>
+            <div id="edit-options">${optionsHTML}</div>
+          </div>
+
+          <div class="form-group">
+            <label>Dificuldade:</label>
+            <select name="difficulty" required>
+              <option value="fácil"        ${question.difficulty==='fácil'       ? 'selected':''}>Fácil</option>
+              <option value="normal"       ${question.difficulty==='normal'      ? 'selected':''}>Normal</option>
+              <option value="difícil"      ${question.difficulty==='difícil'     ? 'selected':''}>Difícil</option>
+              <option value="especialista" ${question.difficulty==='especialista'? 'selected':''}>Especialista</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Categorias:</label>
+            <div id="edit-categories">${categoriesHTML}</div>
+          </div>
+
+          <button type="submit" id="save-question-btn">Salvar Pergunta</button>
+        `;
+
+        form.addEventListener('submit', async e => {
+          e.preventDefault();
+          const fd = new FormData(form);
+          const updated = {
+            question: fd.get('questionText'),
+            options: [
+              fd.get('option0'),
+              fd.get('option1'),
+              fd.get('option2'),
+              fd.get('option3')
+            ],
+            answer: parseInt(fd.get('correctOption'), 10),
+            difficulty: fd.get('difficulty'),
+            categoryIds: fd.getAll('cat').map(id => parseInt(id, 10))
+          };
+
+          const res = await fetch(`/api/questions/${question.id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updated)
+          });
+
+          if (res.ok) {
+            alert('Pergunta atualizada com sucesso!');
+            questionSearchBtn.click();
+          } else {
+            alert('Erro ao salvar pergunta.');
+          }
+        });
+
+        questionList.appendChild(form);
+      }
+
+      loadCategories();
+    });
+  </script>
+</body>
+</html>
