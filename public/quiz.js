@@ -1,4 +1,3 @@
-// quiz.js
 let questions = [];
 let selectedQuestions = [];
 let currentIndex = 0;
@@ -82,13 +81,15 @@ async function loadQuestions() {
 
 function showQuestion() {
   if (currentIndex >= selectedQuestions.length) {
+    // Salva os resultados no localStorage antes de redirecionar
     cumulativeQI += sessionScore;
     localStorage.setItem('cumulativeQI', cumulativeQI);
-
-    localStorage.setItem('acertos', acertos);
+    localStorage.setItem('acertos', acertos); // Total de acertos (independente de ser a primeira vez)
+    localStorage.setItem('total', selectedQuestions.length); // Total de perguntas
     localStorage.setItem('qiAtual', cumulativeQI);
     localStorage.setItem('delta', sessionScore);
 
+    // Redireciona para a página de resultados
     window.location.href = 'result.html';
     return;
   }
@@ -121,29 +122,36 @@ function handleAnswer(selectedIndex, correctIndex, selectedButton, difficulty, q
   const categoryId = params.get('category');
   let answeredQuestions = JSON.parse(localStorage.getItem(`answeredQuestions_${categoryId}`)) || [];
 
+  // Verifica se o usuário já respondeu esta pergunta
   let isFirstTime = !answeredQuestions.includes(questionId);
 
   let gained = 0;
 
   if (selectedIndex === correctIndex) {
+    // Resposta correta
     selectedButton.style.backgroundColor = 'green';
 
+    // Sempre conta como acerto, independentemente de ser a primeira vez
+    acertos++;
+
+    // Soma pontos apenas se for a primeira vez respondendo corretamente
     if (isFirstTime) {
-      acertos++;
       gained = ptsCerto;
     } else {
-      gained = 0; // Já respondeu antes, não ganha pontos
+      gained = 0; // Não ganha pontos se já respondeu antes
     }
-
   } else {
+    // Resposta errada
     selectedButton.style.backgroundColor = 'red';
     buttons[correctIndex].style.backgroundColor = 'green';
-    gained = ptsErrado; // Sempre perde pontos ao errar, mesmo que já tenha respondido
+
+    // Sempre reduz pontos ao errar
+    gained = ptsErrado;
   }
 
   sessionScore += gained;
 
-  // Atualiza histórico apenas se for primeira vez
+  // Atualiza histórico de perguntas respondidas
   if (isFirstTime) {
     answeredQuestions.push(questionId);
     localStorage.setItem(`answeredQuestions_${categoryId}`, JSON.stringify(answeredQuestions));

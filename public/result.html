@@ -1,4 +1,3 @@
-<!-- result.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,8 +7,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #1e1e1e; /* Preto um pouco mais claro */
-      color: white;
+      background-color: #000000; /* Fundo preto */
+      color: #ffffff; /* Texto branco */
       margin: 0;
       padding: 40px 20px;
       text-align: center;
@@ -18,46 +17,50 @@
     #result-container {
       max-width: 700px;
       margin: 0 auto;
+      padding: 20px;
+      background-color: #000000; /* Fundo cinza escuro */
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Sombreamento */
     }
 
     h1 {
       font-size: 32px;
-      color: #007bff; /* Azul */
-      margin-bottom: 10px;
+      color: #1e90ff; /* Azul escuro */
+      margin-bottom: 20px;
     }
 
     .acertos {
       font-size: 20px;
-      color: white;
+      color: #dcdcdc; /* Cinza claro */
       margin-bottom: 30px;
     }
 
     .retangulo {
-      background-color: #000; /* Preto intenso */
+      background-color: #272727; /* Cinza escuro */
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 30px;
-      font-size: 20px;
-      color: #007bff;
+      font-size: 18px;
+      color: #1e90ff; /* Azul escuro */
     }
 
     .qi-container {
-      background-color: #000;
+      background-color: #272727; /* Cinza escuro */
       border-radius: 10px;
       padding: 20px;
-      border-top: 4px solid #007bff;
+      border-top: 4px solid #1e90ff; /* Linha azul no topo */
     }
 
     .qi-label {
       font-size: 20px;
-      color: white;
-      margin-bottom: 5px;
+      color: #dcdcdc; /* Cinza claro */
+      margin-bottom: 10px;
     }
 
     .qi-value {
       font-size: 46px;
       font-weight: bold;
-      color: #007bff;
+      color: #1e90ff; /* Azul escuro */
     }
 
     .qi-delta {
@@ -70,8 +73,8 @@
       margin-top: 30px;
       padding: 12px 24px;
       font-size: 18px;
-      background-color: #007bff;
-      color: white;
+      background-color: #1e90ff; /* Azul escuro */
+      color: #ffffff; /* Texto branco */
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -79,7 +82,7 @@
     }
 
     .finalizar-btn:hover {
-      background-color: #0056b3;
+      background-color: #0056b3; /* Azul mais escuro no hover */
     }
   </style>
 </head>
