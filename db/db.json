@@ -135,12 +135,12 @@
     },
     {
       "id": 7,
-      "question": "Qual elemento químico é representado pelo símbolo 'O'?",
+      "question": "Qual o menor osso do corpo humano?",
       "options": [
-        "Ouro",
-        "Oxigênio",
-        "Ósmio",
-        "Ozônio"
+        "Bigorna",
+        "Estribo",
+        "Martelo",
+        "Tíbia"
       ],
       "answer": 1,
       "categoryIds": [

@@ -5,8 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>eQuizz</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Atualizar caminho do favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+  <!-- Modal de Login -->
+  <div id="login-modal">
+    <form id="login-form" class="modal-content">
+      <div class="modal-title">eQuizz</div>
+      <input 
+        type="email" 
+        id="username" 
+        name="email"
+        placeholder="Email" 
+        required
+        autocomplete="email">
+      <input 
+        type="password" 
+        id="password" 
+        name="password"
+        placeholder="Senha" 
+        required
+        autocomplete="current-password">
+      <button type="submit" class="login-btn" name="login-submit">Entrar</button>
+      <div style="text-align:center; margin-top: 0.5rem;">
+        Não possui uma conta? <a href="login.html" id="signup-link">Criar conta</a>
+      </div>
+    </form>
+  </div>
+
   <div class="container">
     <header>
       <h1>eQuizz</h1>
@@ -18,7 +45,9 @@
     <!-- Barra de pesquisa -->
     <div class="search-bar">
       <input type="text" placeholder="Pesquisar categorias..." id="search-input" />
-      <button id="search-btn">🔍︎</button>
+      <button id="search-btn">
+        <img src="/images/lupa.svg" alt="Pesquisar" class="search-icon">
+      </button>
     </div>
 
     <main>
@@ -26,27 +55,64 @@
       <section class="categories">
         <h2>Categorias</h2>
         <div id="categories-container">
+          <div id="loading" class="loading-spinner" style="display: none;">Carregando...</div>
           <!-- Os cartões de categorias serão carregados aqui dinamicamente -->
-          <div class="category-card">
-            <div class="category-image">
-              <img src="https://via.placeholder.com/80" alt="Imagem Categoria 1" />
-            </div>
-            <h3>Categoria 1</h3>
-            <p>Descrição da categoria 1.</p>
-            <span>10 Perguntas</span>
-          </div>
-          <div class="category-card">
-            <div class="category-image">
-              <img src="https://via.placeholder.com/80" alt="Imagem Categoria 2" />
-            </div>
-            <h3>Categoria 2</h3>
-            <p>Descrição da categoria 2.</p>
-            <span>8 Perguntas</span>
-          </div>
-          <!-- Adicione mais cartões conforme necessário -->
         </div>
       </section>
     </main>
+    <footer>
+      <p>&copy; 2025 eQuizz. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+
+  <!-- Botão flutuante -->
+  <button class="floating-btn">+</button>
+  
+  <!-- Modal já existente -->
+  <div id="add-question-modal" class="modal">
+    <div class="modal-content">
+      <h2>Adicionar Pergunta</h2>
+      <form id="add-question-form">
+        <div class="form-group">
+          <textarea 
+            id="question-text" 
+            placeholder="Digite sua pergunta..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="options-group">
+          <div class="option-input">
+            <input type="radio" name="correct" value="0" required>
+            <input type="text" placeholder="Alternativa 1" required>
+          </div>
+          <div class="option-input">
+            <input type="radio" name="correct" value="1">
+            <input type="text" placeholder="Alternativa 2" required>
+          </div>
+          <div class="option-input">
+            <input type="radio" name="correct" value="2">
+            <input type="text" placeholder="Alternativa 3" required>
+          </div>
+          <div class="option-input">
+            <input type="radio" name="correct" value="3">
+            <input type="text" placeholder="Alternativa 4" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <select id="difficulty" required>
+            <option value="">Selecione a dificuldade</option>
+            <option value="fácil">Fácil</option>
+            <option value="normal">Normal</option>
+            <option value="difícil">Difícil</option>
+          </select>
+        </div>
+
+        <button type="submit" class="add-btn">Adicionar</button>
+      </form>
+      <button class="close-btn">&times;</button>
+    </div>
   </div>
 
   <!-- Scripts -->

@@ -29,7 +29,68 @@ const pointsTable = {
 async function loadQuestions() {
   const params = new URLSearchParams(window.location.search);
   const categoryId = params.get('category');
+  const source = params.get('source');
 
+  if (source === 'community') {
+    try {
+      const response = await fetch('/api/community/questions');
+      const data = await response.json();
+      
+      if (!data || !data.questions) {
+        questionText.textContent = 'Erro na estrutura dos dados.';
+        return;
+      }
+
+      if (!Array.isArray(data.questions) || data.questions.length === 0) {
+        questionText.textContent = 'Nenhuma pergunta disponível da comunidade.';
+        return;
+      }
+
+      questions = data.questions;
+      categoryText.textContent = 'Comunidade';
+      
+      // Carrega histórico de perguntas respondidas
+      let perguntasRespondidasComunidade = JSON.parse(
+        localStorage.getItem('perguntasRespondidasComunidade')
+      ) || [];
+
+      // Separa perguntas não respondidas
+      let perguntasNovas = questions.filter(q => !perguntasRespondidasComunidade.includes(q.id));
+      
+      // Define o número total de perguntas para 10
+      const TOTAL_PERGUNTAS = 10;
+      
+      // Se houver perguntas novas
+      if (perguntasNovas.length > 0) {
+        if (perguntasNovas.length >= TOTAL_PERGUNTAS) {
+          selectedQuestions = shuffle(perguntasNovas).slice(0, TOTAL_PERGUNTAS);
+        } else {
+          const perguntasRespondidas = questions.filter(q => 
+            perguntasRespondidasComunidade.includes(q.id)
+          );
+          const perguntasFaltantes = TOTAL_PERGUNTAS - perguntasNovas.length;
+          
+          selectedQuestions = [
+            ...perguntasNovas,
+            ...shuffle(perguntasRespondidas).slice(0, perguntasFaltantes)
+          ];
+          selectedQuestions = shuffle(selectedQuestions);
+        }
+      } else {
+        selectedQuestions = shuffle(questions).slice(0, TOTAL_PERGUNTAS);
+      }
+
+      localStorage.setItem('total', selectedQuestions.length);
+      showQuestion();
+      
+    } catch (error) {
+      console.error('Erro ao carregar perguntas da comunidade:', error);
+      questionText.textContent = 'Erro ao carregar perguntas da comunidade.';
+    }
+    return;
+  }
+
+  // Lógica existente para categorias normais
   if (!categoryId) {
     questionText.textContent = 'Categoria não informada!';
     return;
@@ -81,20 +142,42 @@ async function loadQuestions() {
 
 function showQuestion() {
   if (currentIndex >= selectedQuestions.length) {
-    // Salva os resultados no localStorage antes de redirecionar
     cumulativeQI += sessionScore;
     localStorage.setItem('cumulativeQI', cumulativeQI);
-    localStorage.setItem('acertos', acertos); // Total de acertos (independente de ser a primeira vez)
-    localStorage.setItem('total', selectedQuestions.length); // Total de perguntas
+    localStorage.setItem('acertos', acertos);
+    localStorage.setItem('total', selectedQuestions.length);
     localStorage.setItem('qiAtual', cumulativeQI);
     localStorage.setItem('delta', sessionScore);
 
-    // Redireciona para a página de resultados
+    // Atualiza backend se logado
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData && userData.email) {
+      fetch('/api/users/updateQI', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: userData.email, newQI: cumulativeQI })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          userData.qi = cumulativeQI;
+          localStorage.setItem('userData', JSON.stringify(userData));
+        }
+        window.location.href = 'result.html';
+      })
+      .catch(() => window.location.href = 'result.html');
+      return;
+    }
+
     window.location.href = 'result.html';
     return;
   }
 
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get('source');
   const question = selectedQuestions[currentIndex];
+
+  // Exibe a pergunta normalmente
   questionText.innerHTML = `
     ${question.question}
     <span style="color: ${difficultyColors[question.difficulty]}; font-weight: bold; font-size: 14px;">
@@ -102,8 +185,32 @@ function showQuestion() {
     </span>
   `;
 
-  progressText.textContent = `${currentIndex + 1}/${selectedQuestions.length}`;
+  // EXIBE AUTOR PARA PERGUNTAS DA COMUNIDADE
+  const authorInfo = document.getElementById('author-info');
+  if (source === 'community') {
+    let usuarios = allUsers; // <-- use a lista global carregada do backend
 
+    let authorHTML = `<span style="color:#1e90ff;font-weight:bold;">By: </span>`;
+    if (question.userId && Number(question.userId) > 0) {
+      const user = usuarios.find(u => Number(u.id) === Number(question.userId));
+      if (user) {
+        authorHTML += `<span style="color:#1e90ff;">${user.username}</span>
+          <img src="/images/avatars/avatar${user.avatarId || 1}.png" alt="avatar" style="width:24px;height:24px;border-radius:50%;border:1.5px solid #1e90ff;vertical-align:middle;margin-left:8px;">`;
+      } else {
+        authorHTML += `<span style="color:#1e90ff;">Usuário desconhecido</span>`;
+      }
+    } else {
+      authorHTML += `<span style="color:#1e90ff;">Pergunta padrão</span>`;
+    }
+    authorInfo.innerHTML = authorHTML;
+    authorInfo.style.display = 'block';
+    authorInfo.style.textAlign = 'left';
+  } else {
+    authorInfo.innerHTML = '';
+    authorInfo.style.display = 'none';
+  }
+
+  progressText.textContent = `${currentIndex + 1}/${selectedQuestions.length}`;
   optionsContainer.innerHTML = '';
   question.options.forEach((option, index) => {
     const btn = document.createElement('button');
@@ -115,46 +222,79 @@ function showQuestion() {
 }
 
 function handleAnswer(selectedIndex, correctIndex, selectedButton, difficulty, questionId) {
-  const buttons = document.querySelectorAll('.option-btn');
-  const { correct: ptsCerto, wrong: ptsErrado } = pointsTable[difficulty.toLowerCase()];
-
   const params = new URLSearchParams(window.location.search);
-  const categoryId = params.get('category');
-  let answeredQuestions = JSON.parse(localStorage.getItem(`answeredQuestions_${categoryId}`)) || [];
+  const source = params.get('source');
+  const categoryId = params.get('category'); // Movido para dentro da função
+  const buttons = document.querySelectorAll('.option-btn');
 
-  // Verifica se o usuário já respondeu esta pergunta
-  let isFirstTime = !answeredQuestions.includes(questionId);
+  if (source === 'community') {
+    // Tabela de pontos para perguntas da comunidade por dificuldade
+    const pontosComunidade = {
+      'fácil': { correto: 1, errado: -3 },
+      'normal': { correto: 2, errado: -2 },
+      'difícil': { correto: 3, errado: -1 },
+      'especialista': { correto: 7, errado: -1 } // mantém especialista igual
+    };
 
-  let gained = 0;
+    // Busca histórico de perguntas respondidas da comunidade
+    let perguntasRespondidasComunidade = JSON.parse(
+      localStorage.getItem('perguntasRespondidasComunidade')
+    ) || [];
+    
+    let ePrimeiraVez = !perguntasRespondidasComunidade.includes(questionId);
+    let pontosGanhos = 0;
 
-  if (selectedIndex === correctIndex) {
-    // Resposta correta
-    selectedButton.style.backgroundColor = 'green';
-
-    // Sempre conta como acerto, independentemente de ser a primeira vez
-    acertos++;
-
-    // Soma pontos apenas se for a primeira vez respondendo corretamente
-    if (isFirstTime) {
-      gained = ptsCerto;
+    if (selectedIndex === correctIndex) {
+      selectedButton.style.backgroundColor = 'green';
+      acertos++;
+      
+      // Só ganha pontos se for primeira vez
+      if (ePrimeiraVez) {
+        pontosGanhos = pontosComunidade[difficulty.toLowerCase()].correto;
+      }
     } else {
-      gained = 0; // Não ganha pontos se já respondeu antes
+      selectedButton.style.backgroundColor = 'red';
+      buttons[correctIndex].style.backgroundColor = 'green';
+      // Sempre perde pontos ao errar
+      pontosGanhos = pontosComunidade[difficulty.toLowerCase()].errado;
+    }
+
+    sessionScore += pontosGanhos;
+
+    // Atualiza histórico se for primeira vez
+    if (ePrimeiraVez) {
+      perguntasRespondidasComunidade.push(questionId);
+      localStorage.setItem(
+        'perguntasRespondidasComunidade', 
+        JSON.stringify(perguntasRespondidasComunidade)
+      );
     }
   } else {
-    // Resposta errada
-    selectedButton.style.backgroundColor = 'red';
-    buttons[correctIndex].style.backgroundColor = 'green';
+    // Perguntas normais
+    let answeredQuestions = JSON.parse(localStorage.getItem(`answered_${categoryId}`)) || [];
+    let isFirstTime = !answeredQuestions.includes(questionId);
+    
+    const ptsCerto = pointsTable[difficulty].correct;
+    const ptsErrado = pointsTable[difficulty].wrong;
+    
+    let gained = 0;
 
-    // Sempre reduz pontos ao errar
-    gained = ptsErrado;
-  }
+    if (selectedIndex === correctIndex) {
+      selectedButton.style.backgroundColor = 'green';
+      acertos++;
+      
+      if (isFirstTime) {
+        gained = ptsCerto;
+        answeredQuestions.push(questionId);
+        localStorage.setItem(`answered_${categoryId}`, JSON.stringify(answeredQuestions));
+      }
+    } else {
+      selectedButton.style.backgroundColor = 'red';
+      buttons[correctIndex].style.backgroundColor = 'green';
+      gained = ptsErrado;
+    }
 
-  sessionScore += gained;
-
-  // Atualiza histórico de perguntas respondidas
-  if (isFirstTime) {
-    answeredQuestions.push(questionId);
-    localStorage.setItem(`answeredQuestions_${categoryId}`, JSON.stringify(answeredQuestions));
+    sessionScore += gained;
   }
 
   buttons.forEach(btn => btn.disabled = true);
@@ -165,4 +305,41 @@ function handleAnswer(selectedIndex, correctIndex, selectedButton, difficulty, q
   }, 2000);
 }
 
-loadQuestions();
+async function getBackendQI() {
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  if (userData && userData.email) {
+    try {
+      const response = await fetch('/api/users/getQI', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: userData.email })
+      });
+      const data = await response.json();
+      if (data.success) return data.qi;
+    } catch (e) { /* ignore */ }
+  }
+  return null;
+}
+
+let allUsers = [];
+
+async function fetchAllUsers() {
+  try {
+    const res = await fetch('/api/users/all');
+    let users = await res.json();
+    // Filtra apenas usuários com id válido
+    allUsers = users.filter(u => u && typeof u.id !== 'undefined');
+  } catch {
+    allUsers = [];
+  }
+}
+
+(async () => {
+  await fetchAllUsers();
+  let backendQI = await getBackendQI();
+  if (backendQI !== null) {
+    cumulativeQI = backendQI;
+    localStorage.setItem('cumulativeQI', backendQI);
+  }
+  await loadQuestions();
+})();

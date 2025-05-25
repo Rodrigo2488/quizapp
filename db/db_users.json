@@ -1,0 +1,103 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Rodrigo",
+      "email": "rodrigo2488.884@gmail.com",
+      "password": "81239780",
+      "avatarId": 5,
+      "qi": 243,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 2,
+      "username": "Mariana",
+      "email": "rodrigo2488.2@gmail.com",
+      "password": "81239780",
+      "avatarId": 2,
+      "qi": 29,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 3,
+      "username": "Beatriz rocha",
+      "email": "rodrigo2488.3@gmail.com",
+      "password": "81239780",
+      "avatarId": 3,
+      "qi": 39,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 4,
+      "username": "camila",
+      "email": "rodrigo2488.4@gmail.com",
+      "password": "81239780",
+      "avatarId": 4,
+      "qi": 99,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 5,
+      "username": "Rafael silva",
+      "email": "rodrigo2488.5@gmail.com",
+      "password": "81239780",
+      "avatarId": 5,
+      "qi": 9,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 6,
+      "username": "Ana",
+      "email": "rodrigo2488.6@gmail.com",
+      "password": "81239780",
+      "avatarId": 6,
+      "qi": 89,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 7,
+      "username": "Gustavo",
+      "email": "rodrigo2488.7@gmail.com",
+      "password": "81239780",
+      "avatarId": 7,
+      "qi": 145,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 8,
+      "username": "Larissa",
+      "email": "rodrigo2488.8@gmail.com",
+      "password": "81239780",
+      "avatarId": 8,
+      "qi": 140,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 9,
+      "username": "JP",
+      "email": "rodrigo2488.9@gmail.com",
+      "password": "81239780",
+      "avatarId": 9,
+      "qi": 90,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 10,
+      "username": "Paulo Guilherme",
+      "email": "rodrigo2488.4@gmail.com",
+      "password": "81239780",
+      "avatarId": 10,
+      "qi": 20,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 11,
+      "username": "Lucas Andrade",
+      "email": "rodrigo2488.11@gmail.com",
+      "password": "81239780",
+      "avatarId": 1,
+      "qi": 92,
+      "createdAt": "2024-05-16T10:45:00.000Z"
+    }
+  ]
+}

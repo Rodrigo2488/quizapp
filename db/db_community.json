@@ -1,0 +1,270 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Qual é o maior planeta do sistema solar?",
+      "options": [
+        "Terra",
+        "Júpiter",
+        "Saturno",
+        "Marte"
+      ],
+      "answer": 1,
+      "categoryIds": [],
+      "difficulty": "fácil",
+      "userId": 3
+    },
+    {
+      "id": 2,
+      "question": "Quem pintou a Mona Lisa?",
+      "options": [
+        "Leonardo da Vinci",
+        "Michelangelo",
+        "Van Gogh",
+        "Picasso"
+      ],
+      "answer": 0,
+      "categoryIds": [],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 3,
+      "question": "Qual é o elemento químico representado pelo símbolo 'O'?",
+      "options": [
+        "Ouro",
+        "Oxigênio",
+        "Osmium",
+        "Óxido"
+      ],
+      "answer": 1,
+      "categoryIds": [],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 4,
+      "question": "Qual país é conhecido como a terra do sol nascente?",
+      "options": [
+        "China",
+        "Japão",
+        "Coreia do Sul",
+        "Tailândia"
+      ],
+      "answer": 1,
+      "categoryIds": [],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 5,
+      "question": "Qual é a capital da França?",
+      "options": [
+        "Londres",
+        "Berlim",
+        "Paris",
+        "Roma"
+      ],
+      "answer": 2,
+      "categoryIds": [],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 6,
+      "question": "Quem escreveu 'Dom Quixote'?",
+      "options": [
+        "Miguel de Cervantes",
+        "William Shakespeare",
+        "Jorge Luis Borges",
+        "Gabriel García Márquez"
+      ],
+      "answer": 0,
+      "categoryIds": [],
+      "difficulty": "normal"
+    },
+    {
+      "id": 7,
+      "question": "Qual é o maior oceano do mundo?",
+      "options": [
+        "Atlântico",
+        "Pacífico",
+        "Índico",
+        "Ártico"
+      ],
+      "answer": 1,
+      "categoryIds": [],
+      "difficulty": "normal"
+    },
+    {
+      "id": 8,
+      "question": "Qual é a fórmula química da água?",
+      "options": [
+        "H2O",
+        "CO2",
+        "O2",
+        "H2SO4"
+      ],
+      "answer": 0,
+      "categoryIds": [],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 9,
+      "question": "Quem foi o primeiro homem a pisar na Lua?",
+      "options": [
+        "Buzz Aldrin",
+        "Neil Armstrong",
+        "Yuri Gagarin",
+        "John Glenn"
+      ],
+      "answer": 1,
+      "categoryIds": [],
+      "difficulty": "normal",
+      "userId": 7
+    },
+    {
+      "id": 10,
+      "question": "Qual é o idioma mais falado no mundo?",
+      "options": [
+        "Inglês",
+        "Espanhol",
+        "Chinês Mandarim",
+        "Hindi"
+      ],
+      "answer": 2,
+      "categoryIds": [],
+      "difficulty": "normal"
+    },
+    {
+      "id": 11,
+      "question": "Qual é o número atômico do hidrogênio?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 0,
+      "categoryIds": [],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 12,
+      "question": "Em que ano ocorreu a Revolução Francesa?",
+      "options": [
+        "1789",
+        "1776",
+        "1804",
+        "1815"
+      ],
+      "answer": 0,
+      "categoryIds": [],
+      "difficulty": "normal",
+      "userId": 5
+    },
+    {
+      "id": 13,
+      "question": "Qual é o animal terrestre mais rápido do mundo?",
+      "options": [
+        "Leão",
+        "Cavalo",
+        "Guepardo",
+        "Antílope"
+      ],
+      "answer": 2,
+      "categoryIds": [],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 14,
+      "question": "Qual é a montanha mais alta do mundo?",
+      "options": [
+        "Monte Everest",
+        "K2",
+        "Kangchenjunga",
+        "Makalu"
+      ],
+      "answer": 0,
+      "categoryIds": [],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 15,
+      "question": "Quem desenvolveu a teoria da relatividade?",
+      "options": [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Galileu Galilei",
+        "Nikola Tesla"
+      ],
+      "answer": 1,
+      "categoryIds": [],
+      "difficulty": "normal"
+    },
+    {
+      "id": 1747331136176,
+      "question": "Qual o maior osso do corpo humano?",
+      "options": [
+        "Fêmur",
+        "Tíbia",
+        "Rádio",
+        "Clavícula"
+      ],
+      "answer": 0,
+      "categoryIds": [],
+      "difficulty": "fácil",
+      "userId": 11
+    },
+    {
+      "id": 1747331316924,
+      "question": "Qual o menor osso do corpo humano?",
+      "options": [
+        "Martelo",
+        "Bigorna",
+        "Estribo ",
+        "Tíbia"
+      ],
+      "answer": 2,
+      "categoryIds": [],
+      "difficulty": "normal"
+    },
+    {
+      "id": 1747340712377,
+      "question": "Onde fica o muro de Berlim?",
+      "options": [
+        "Pequim",
+        "Berlim",
+        "Amsterdã",
+        "Nova York"
+      ],
+      "answer": 1,
+      "categoryIds": [],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 1748118493120,
+      "question": "Qual a fórmula química do ácido sulfúrico?",
+      "options": [
+        "HSbF₆",
+        "HCl",
+        "C₆H₈O₇",
+        "H₂SO₄"
+      ],
+      "answer": 3,
+      "categoryIds": [],
+      "difficulty": "normal",
+      "userId": 1
+    },
+    {
+      "id": 1748121674466,
+      "question": "Quantos mols existem em 36 gramas de água (H₂O)?",
+      "options": [
+        "4 mols",
+        "3 mols",
+        "2 mols",
+        "1 mol"
+      ],
+      "answer": 2,
+      "categoryIds": [],
+      "difficulty": "difícil",
+      "userId": 1
+    }
+  ]
+}

@@ -84,6 +84,67 @@
     .finalizar-btn:hover {
       background-color: #0056b3; /* Azul mais escuro no hover */
     }
+
+    /* Estilos adicionais para o ranking */
+    #ranking-container {
+      margin-top: 32px;
+    }
+
+    #ranking-list {
+      text-align: left;
+      margin: 0 auto;
+      max-width: 340px;
+      padding-left: 0;
+    }
+
+    #ranking-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    #ranking-list li span {
+      display: inline-block;
+    }
+
+    #ranking-list li img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid #1e90ff;
+      background: #222;
+      margin-right: 6px;
+    }
+
+    #user-ranking {
+      margin-top: 18px;
+      font-size: 1.1rem;
+      color: #dcdcdc;
+    }
+
+    /* Estilo para o item do ranking do usuário atual */
+    .ranking-item {
+      position: relative;
+      padding-left: 36px;
+    }
+
+    .ranking-item.meu-ranking {
+      color: #1e90ff;
+      font-weight: bold;
+    }
+
+    .ranking-item.meu-ranking::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1e90ff;
+    }
   </style>
 </head>
 <body>
@@ -100,6 +161,13 @@
     </div>
 
     <button class="finalizar-btn" onclick="window.location.href='index.html'">Finalizar Quiz</button>
+
+    <!-- Caixa de Ranking -->
+    <div class="qi-container" id="ranking-container" style="margin-top:32px;">
+      <div class="qi-label" style="color:#1e90ff; font-size: 1.4rem; margin-bottom:18px;">Ranking</div>
+      <ol id="ranking-list" style="text-align:left; margin:0 auto; max-width:340px; padding-left:0;"></ol>
+      <div id="user-ranking" style="margin-top:18px; font-size:1.1rem; color:#dcdcdc;"></div>
+    </div>
   </div>
 
   <script>
@@ -128,6 +196,62 @@
     const deltaText = document.getElementById('qi-delta');
     deltaText.textContent = `${delta >= 0 ? '+' : ''}${delta}`;
     deltaText.style.color = delta >= 0 ? 'limegreen' : 'red';
+
+    // Função para buscar e exibir o ranking
+    async function loadRanking() {
+      const rankingList = document.getElementById('ranking-list');
+      const userRanking = document.getElementById('user-ranking');
+      rankingList.innerHTML = '<li style="color:#888;">Carregando ranking...</li>';
+
+      try {
+        // Busca os 10 maiores QIs do backend
+        const res = await fetch('/api/users/ranking');
+        const data = await res.json();
+
+        if (data.success && Array.isArray(data.ranking)) {
+          rankingList.innerHTML = '';
+          data.ranking.forEach((user, idx) => {
+            const isCurrentUser = user.email === JSON.parse(localStorage.getItem('userData')).email;
+            rankingList.innerHTML += `
+              <li class="ranking-item${isCurrentUser ? ' meu-ranking' : ''}">
+                <span style="font-weight:bold;width:22px;display:inline-block;">${idx + 1}º</span>
+                <img src="${user.avatarPath || 'images/avatars/default-avatar.png'}" alt="avatar" style="width:28px;height:28px;border-radius:50%;border:1.5px solid #1e90ff;background:#222;margin-right:6px;">
+                <span style="flex:1;">${user.username || user.email.split('@')[0]}</span>
+                <span style="font-weight:bold;color:#1e90ff;">${user.qi}</span>
+              </li>
+            `;
+          });
+
+          // Exibe a posição do usuário atual, se estiver logado
+          const userData = JSON.parse(localStorage.getItem('userData'));
+          if (userData && userData.email) {
+            // Busca a posição do usuário no ranking geral
+            const resUser = await fetch('/api/users/position', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: userData.email })
+            });
+            const userPosData = await resUser.json();
+            if (userPosData.success && userPosData.position) {
+              userRanking.innerHTML = `Sua posição: <span style="color:#1e90ff;font-weight:bold;">${userPosData.position}º</span> — <span style="color:#1e90ff;font-weight:bold;">${userPosData.totalUsers}</span> usuários`;
+            } else {
+              userRanking.innerHTML = '';
+            }
+          } else {
+            userRanking.innerHTML = '';
+          }
+        } else {
+          rankingList.innerHTML = '<li style="color:#888;">Não foi possível carregar o ranking.</li>';
+          userRanking.innerHTML = '';
+        }
+      } catch (e) {
+        rankingList.innerHTML = '<li style="color:#888;">Erro ao carregar ranking.</li>';
+        userRanking.innerHTML = '';
+      }
+    }
+
+    loadRanking();
   </script>
+  <script src="result.js"></script>
 </body>
 </html>

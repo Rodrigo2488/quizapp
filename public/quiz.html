@@ -72,6 +72,21 @@
       background-color: #007bff; /* Azul para hover */
       color: #ffffff; /* Branco para o texto no hover */
     }
+
+    /* Estilo para indicador de pergunta da comunidade */
+    .community-indicator {
+      background-color: #1e90ff;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+
+    /* Ajuste para perguntas da comunidade */
+    #category-text.community {
+      color: #1e90ff;
+    }
   </style>
 </head>
 <body>
@@ -83,6 +98,7 @@
     </div>
 
     <div id="question-text"></div> <!-- Exibição da pergunta -->
+    <div id="author-info" style="margin-bottom: 10px;"></div>
     <div id="options-container"></div> <!-- Exibição das alternativas -->
   </div>
 

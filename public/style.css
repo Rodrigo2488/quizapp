@@ -1,9 +1,9 @@
 :root {
-  --color-primary: #1e90ff; /* Azul escuro */
-  --color-primary-dark: #1c86ee; /* Azul mais escuro */
-  --color-secondary: #00bfff; /* Azul claro */
+  --color-primary: #1c86ee; /* Azul escuro */
+  --color-primary-dark: #1c86ee; /* Azul escuro */
+  --color-secondary: #1c86ee; /* Azul*/
   --color-gray-dark: #ffffff; /* Branco para texto */
-  --color-gray-medium: #ffffff; /* Cinza médio */
+  --color-gray-medium: #ffffff; /* Branco */
   --color-gray-light: #303030; /* Cinza escuro */
   --bg-color: #000000; /* Fundo preto */
   --spacer: 1rem;
@@ -68,14 +68,16 @@ header h1 {
 /* Área da barra de pesquisa */
 .search-bar {
   position: relative;
+  display: flex;
+  align-items: center;
   margin-bottom: 1.25rem;
 }
 
 /* Campo de texto da pesquisa */
 .search-bar input {
   width: 100%;
-  padding: 0.75rem 3rem 0.75rem 0.75rem;
-  border: 0.125rem solid var(--color-gray-medium);
+  padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+  border: 0.125rem solid #1e90ff; /* Sempre azul */
   border-radius: 1.563rem;
   font-size: 1rem;
   outline: none;
@@ -83,27 +85,42 @@ header h1 {
   color: var(--color-gray-dark);
 }
 
-/* Foco no campo de texto */
+/* Remova ou comente este bloco para não mudar no foco */
+/*
 .search-bar input:focus {
   border-color: var(--color-primary);
 }
+*/
 
 /* Botão de pesquisa */
 .search-bar button {
   position: absolute;
-  top: 0;
   right: 0;
-  height: 100%;
-  width: 3rem;
-  background-color: var(--color-primary);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-primary); /* Fundo azul permanente */
   border: none;
-  border-radius: 0 1.563rem 1.563rem 0;
-  color: var(--bg-color);
-  font-size: 1rem;
   cursor: pointer;
+  padding: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 3rem;
+  height: 100%;
+  border-radius: 0 1.563rem 1.563rem 0;
+  transition: opacity 0.3s ease; /* Mudando a transição para opacity */
+}
+
+/* Ícone da lupa */
+.search-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  filter: invert(100%);
+}
+
+/* Efeito hover apenas para opacidade */
+.search-bar button:hover {
+  opacity: 0.8; /* Apenas reduz a opacidade no hover */
 }
 
 /* Título "Categorias" */
@@ -237,4 +254,467 @@ header h1 {
 .play-btn:focus {
   outline: 0.188rem solid var(--color-primary);
   outline-offset: 0.25rem;
+}
+
+/* Modal e formulário de adicionar pergunta */
+.modal-content {
+  position: relative;
+  background-color: var(--color-gray-light);
+  margin: 5% auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  text-align: center;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+#question-text {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-gray-medium);
+  border-radius: 0.5rem;
+  background-color: var(--color-gray-light);
+  color: var(--color-gray-dark);
+  resize: vertical;
+}
+
+.options-group {
+  margin-bottom: 1.5rem;
+}
+
+.option-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.375rem;
+  background-color: transparent;
+  border-radius: 0.375rem;
+}
+
+.option-input input[type="radio"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  cursor: pointer;
+}
+
+.option-input input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--color-gray-medium);
+  border-radius: 0.375rem;
+  background-color: var(--color-gray-light);
+  color: var(--color-gray-dark);
+  font-size: 0.9375rem;
+}
+
+#difficulty {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-gray-medium);
+  border-radius: 0.375rem;
+  background-color: var(--color-gray-light);
+  color: var(--color-gray-dark);
+  cursor: pointer;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.close-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--color-gray-dark);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+/* Botão flutuante */
+.floating-btn {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: none; /* Começa oculto */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.retry-btn {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.retry-btn:hover {
+  opacity: 0.9;
+}
+
+/* Modal de login aprimorado */
+#login-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+}
+
+#login-modal .modal-content,
+#login-modal form {
+  background: #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(30, 144, 255, 0.15);
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 320px;
+  max-width: 350px; /* Reduzido para janela menor */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#login-modal h2,
+#login-modal .modal-title {
+  font-size: 2rem;
+  color: #1e90ff;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#login-modal input[type="email"],
+#login-modal input[type="password"] {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #1e90ff;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background: #f7faff;
+  color: #222;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+  display: block;
+}
+
+#login-modal input[type="text"],
+#login-modal input[type="password"] {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #1e90ff;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background: #f7faff;
+  color: #222;
+  outline: none;
+  transition: border 0.2s;
+}
+
+#login-modal input[type="text"]:focus,
+#login-modal input[type="password"]:focus {
+  border: 2px solid #0056b3;
+}
+
+#login-modal button[type="submit"] {
+  width: 100%;
+  background: #1e90ff;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 0.9rem 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+
+#login-modal button[type="submit"]:hover {
+  background: #0056b3;
+}
+
+#login-modal a {
+  color: #1e90ff;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+#login-modal label {
+  display: none;
+}
+
+/* Modal de cadastro centralizado */
+#signup-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+}
+
+#signup-modal .modal-content,
+#signup-modal form {
+  background: #1a1a1a; /* alterado de #fff para #1a1a1a */
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(30, 144, 255, 0.15);
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 320px;
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#signup-modal .modal-title {
+  font-size: 2rem;
+  color: #1e90ff;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#signup-modal input[type="text"],
+#signup-modal input[type="email"],
+#signup-modal input[type="password"] {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #1e90ff;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background: #f7faff;
+  color: #222;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+  display: block;
+}
+
+#signup-modal input:focus {
+  border: 2px solid #0056b3;
+}
+
+#signup-modal button.signup-btn {
+  width: 100%;
+  background: #1e90ff;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 0.9rem 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+
+#signup-modal button.signup-btn:hover {
+  background: #0056b3;
+}
+
+#signup-modal a {
+  color: #1e90ff;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+#signup-modal .photo-label {
+  background: #222;
+  border: 1px solid #1e90ff;
+  color: #1e90ff;
+  border-radius: 8px;
+  padding: 0.4rem 1.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+  margin-bottom: 1rem;
+}
+
+#signup-modal .photo-label:hover {
+  background: #1e90ff;
+  color: #fff;
+}
+
+.profile-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-photo .photo-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#photo-modal {
+  z-index: 3000 !important;
+}
+
+/* Avatares na galeria: círculo azul fino */
+.avatars-grid .avatar-option {
+  border: 2px solid transparent;
+  outline: 1.5px solid #1e90ff; /* linha azul fina ao redor do círculo */
+  outline-offset: 2px;
+  border-radius: 50%;
+  padding: 2px;
+  transition: box-shadow 0.2s, outline 0.2s;
+  box-sizing: border-box;
+  margin: 8px;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+}
+
+/* Destacar avatar selecionado */
+.avatars-grid .avatar-option.selected {
+  outline: 2.5px solid #1e90ff;
+  box-shadow: 0 0 0 3px #1e90ff44;
+}
+
+/* Modal de avatares: X à direita e maior */
+#photo-modal .close-modal {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  font-size: 2.2rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+  transition: color 0.2s;
+}
+#photo-modal .close-modal:hover {
+  color: #1e90ff;
+}
+
+#ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 340px;
+}
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  padding: 0; /* padding só no meu-ranking */
+}
+#ranking-list li.meu-ranking {
+  background: #181a1b;
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px #1e90ff33;
+  padding: 6px 8px;
+}
+
+.admin-container {
+  background: #1a1a1a !important;
+  color: #fff !important;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Inputs e textareas no admin com fundo escuro e texto claro */
+.admin-container input,
+.admin-container textarea,
+.admin-container select {
+  background: #232323;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.admin-container input::placeholder,
+.admin-container textarea::placeholder {
+  color: #aaa;
+  opacity: 1;
 }

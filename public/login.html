@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eQuizz - Criar Conta</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="background: #111;">
+  <div id="signup-modal">
+    <form id="signup-form" class="modal-content">
+      <div class="modal-title">eQuizz</div>
+      <div class="profile-photo" style="margin-bottom: 1.2rem;">
+        <div class="photo-preview">
+          <img id="preview" src="images/avatars/default-avatar.png" alt="Foto do perfil" style="width:64px;height:64px;border-radius:50%;">
+        </div>
+        <button type="button" class="photo-label" id="choose-photo" name="choose-photo" style="margin-top:0.5rem;">
+          Escolher foto
+        </button>
+      </div>
+      <input 
+        type="text" 
+        id="username" 
+        name="username"
+        placeholder="Nome de usuário" 
+        required
+        autocomplete="username"
+      >
+      <input 
+        type="email" 
+        id="email" 
+        name="email"
+        placeholder="Email" 
+        required
+        autocomplete="email"
+      >
+      <input 
+        type="password" 
+        id="password" 
+        name="password"
+        placeholder="Senha" 
+        required
+        autocomplete="new-password"
+      >
+      <button type="submit" class="signup-btn" name="signup-submit">Criar Conta</button>
+      <div style="text-align:center; margin-top: 0.5rem;">
+        Já possui uma conta? <a href="index.html" class="back-to-login">Entrar</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal de avatares -->
+  <div id="photo-modal" class="modal photo-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="photo-options">
+        <h3 class="modal-title" style="color:#1e90ff;text-align:center;">Galeria de Avatares</h3>
+        <div class="avatars-grid" id="avatars-grid">
+          <!-- Avatares serão carregados aqui -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
