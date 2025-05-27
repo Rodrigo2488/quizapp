@@ -109,6 +109,110 @@
     #save-question-btn:hover {
       background-color: #e0a800;
     }
+    /* Estilos para a lista de perguntas e paginação */
+    #question-list {
+      margin-top: 20px;
+    }
+    .question-list-ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .question-list-item {
+      background-color: #2a2a2a; /* Fundo um pouco mais claro que o #1d1d1d */
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      border-left: 4px solid #007bff; /* Indicador visual */
+    }
+    .question-list-item:hover {
+      background-color: #383838;
+      transform: translateY(-2px);
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 25px;
+      padding: 10px 0;
+    }
+    .pagination button {
+      background-color: #3f3f3f;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .pagination button:hover {
+      background-color: #4338ca; /* Cor de hover do menu admin */
+    }
+    .pagination button.active-page {
+      background-color: #007bff; /* Cor de destaque */
+      font-weight: bold;
+    }
+    .pagination button:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    /* Estilos para botões de ação e busca de perguntas */
+    .edit-action-btn {
+      background-color: #3f3f3f; /* Cor base dos botões do menu admin */
+      color: white;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      font-weight: 500;
+    }
+    .edit-action-btn:hover {
+      background-color: #4338ca; /* Cor hover do menu admin */
+      transform: translateY(-2px);
+    }
+    #question-search {
+      display: flex; /* Alinhar input e botão */
+      gap: 10px; /* Espaço entre input e botão */
+      align-items: center;
+      margin-bottom: 20px; /* Espaço antes da lista */
+    }
+    #search-questions-input {
+      flex-grow: 1; /* Input ocupa espaço disponível */
+      padding: 10px 15px;
+      font-size: 1rem;
+      border: 1px solid #555; /* Borda sutil */
+      border-radius: 6px;
+      background-color: #2a2a2a; /* Fundo similar aos itens da lista */
+      color: #eee;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #search-questions-input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+      outline: none;
+    }
+    #question-search-btn {
+      background-color: #007bff; /* Azul primário */
+      color: white;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      flex-shrink: 0; /* Não encolher */
+    }
+    #question-search-btn:hover {
+      background-color: #0056b3; /* Azul mais escuro no hover */
+    }
+
   </style>
 </head>
 <body>

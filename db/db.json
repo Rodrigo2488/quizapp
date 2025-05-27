@@ -610,7 +610,7 @@
     },
     {
       "id": 38,
-      "question": "Quem compôs a Nona Sinfonia, conhecida por incluir \"Ode à Alegria\"?",
+      "question": "Quem compôs a Nona Sinfonia, conhecida por incluir ",
       "options": [
         "Mozart",
         "Bach",
@@ -640,7 +640,7 @@
     },
     {
       "id": 40,
-      "question": "Qual filósofo afirmou que ",
+      "question": "Qual filósofo afirmou que 'tudo é número', defendendo que a realidade última do universo pode ser compreendida através da matemática?",
       "options": [
         "Aristóteles",
         "Pitágoras",

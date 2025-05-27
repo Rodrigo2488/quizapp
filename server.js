@@ -292,6 +292,22 @@ app.get('/api/users/all', (req, res) => {
   res.json(db.users);
 });
 
+// Rota para listar imagens de categorias
+app.get('/api/images', async (req, res) => {
+  const imagesDir = path.join(__dirname, 'public', 'categorias');
+  try {
+    const files = await fs.readdir(imagesDir);
+    // Filtra apenas por arquivos de imagem comuns e retorna o caminho relativo à pasta public
+    const imagePaths = files
+      .filter(file => /\.(svg|png|jpg|jpeg|gif|webp)$/i.test(file))
+      .map(file => `/categorias/${file}`); // Caminho acessível pelo navegador
+    res.json(imagePaths);
+  } catch (error) {
+    console.error('Erro ao listar imagens:', error);
+    res.status(500).json({ error: 'Erro ao buscar imagens de categorias.' });
+  }
+});
+
 async function startServer() {
   try {
     await initDatabases(); // Inicializa os bancos de dados
@@ -333,3 +349,4 @@ async function startServer() {
 }
 
 startServer();
+
