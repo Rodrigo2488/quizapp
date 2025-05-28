@@ -70,38 +70,31 @@ app.get('/api/community/questions', async (req, res) => {
 // Rota de registro de usuários
 app.post('/api/users/register', async (req, res) => {
   try {
-    const { username, email, password, photoUrl } = req.body;
+    const { username, email, password, photoUrl, avatarId } = req.body; // <- Incluído avatarId
     
-    // Carrega dados atuais
     await usersDB.read();
-    
-    // Verifica se email já existe
+
     if (usersDB.data.users.some(user => user.email === email)) {
-      res.status(400).json({
+      return res.status(400).json({
         success: false,
         error: 'Este email já está cadastrado'
       });
-      return;
     }
 
-    // Cria novo usuário
     const newUser = {
       id: Date.now(),
       username,
       email,
       password, // Em produção, deve ser criptografado
       photoUrl,
+      avatarId, // <- Adicionado aqui também
       qi: 0,
       createdAt: new Date().toISOString()
     };
 
-    // Adiciona ao array de usuários
     usersDB.data.users.push(newUser);
-    
-    // Salva no arquivo
     await usersDB.write();
 
-    // Retorna sucesso
     res.json({
       success: true,
       message: 'Usuário cadastrado com sucesso'

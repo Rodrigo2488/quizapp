@@ -6,7 +6,7 @@
       "email": "rodrigo2488.884@gmail.com",
       "password": "81239780",
       "avatarId": 5,
-      "qi": 243,
+      "qi": 258,
       "createdAt": "2024-05-16T10:45:00.000Z"
     },
     {
@@ -98,6 +98,15 @@
       "avatarId": 1,
       "qi": 92,
       "createdAt": "2024-05-16T10:45:00.000Z"
+    },
+    {
+      "id": 1748465447258,
+      "username": "Pedro",
+      "email": "pedro@gmail.com",
+      "password": "81239780",
+      "avatarId": 6,
+      "qi": 72,
+      "createdAt": "2025-05-28T20:50:47.258Z"
     }
   ]
 }
