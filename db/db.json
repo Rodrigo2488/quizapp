@@ -147,7 +147,7 @@
         1,
         2
       ],
-      "difficulty": "fácil"
+      "difficulty": "normal"
     },
     {
       "id": 8,
@@ -189,7 +189,7 @@
         "Estados Unidos",
         "Indonésia"
       ],
-      "answer": 1,
+      "answer": 0,
       "categoryIds": [
         1,
         3
@@ -210,7 +210,7 @@
         1,
         2
       ],
-      "difficulty": "fácil"
+      "difficulty": "normal"
     },
     {
       "id": 12,
@@ -407,7 +407,7 @@
       "categoryIds": [
         2
       ],
-      "difficulty": "difícil"
+      "difficulty": "especialista"
     },
     {
       "id": 25,
@@ -482,7 +482,7 @@
       "categoryIds": [
         2
       ],
-      "difficulty": "difícil"
+      "difficulty": "normal"
     },
     {
       "id": 30,
@@ -497,7 +497,7 @@
       "categoryIds": [
         2
       ],
-      "difficulty": "fácil"
+      "difficulty": "normal"
     },
     {
       "id": 31,
@@ -606,7 +606,7 @@
       "categoryIds": [
         3
       ],
-      "difficulty": "difícil"
+      "difficulty": "normal"
     },
     {
       "id": 38,
@@ -833,7 +833,7 @@
         2,
         4
       ],
-      "difficulty": "fácil"
+      "difficulty": "normal"
     },
     {
       "id": 53,
@@ -998,7 +998,7 @@
       "categoryIds": [
         3
       ],
-      "difficulty": "normal"
+      "difficulty": "difícil"
     },
     {
       "id": 64,
@@ -1054,7 +1054,7 @@
         "Arábia Saudita",
         "Venezuela"
       ],
-      "answer": 2,
+      "answer": 0,
       "categoryIds": [
         3
       ],
@@ -1424,6 +1424,21 @@
       ],
       "difficulty": "fácil",
       "image": "http://www.agenciadenoticias.uniceub.br/wp-content/uploads/2014/03/11805300706_5b1987977c_o.jpg"
+    },
+    {
+      "id": 92,
+      "question": "Quem foi a primeira pessoa a viajar no Espaço?",
+      "options": [
+        "Neil Armstrong",
+        "Marcos Pontes",
+        "A cadela Laika",
+        "Yuri Gagarin"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        1
+      ],
+      "difficulty": "normal"
     }
   ]
 }

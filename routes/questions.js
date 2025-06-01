@@ -43,27 +43,33 @@ router.put('/:id', async (req, res) => {
   const idx = (db.data.questions || []).findIndex(q => q.id === id);
   if (idx === -1) return res.status(404).json({ error: 'Pergunta não encontrada.' });
 
-  const { question, options, answer, categoryIds, difficulty } = req.body;
+  const { question, options, answer, categoryIds, difficulty, image } = req.body;
 
   if (!question || !options || options.length !== 4 || answer == null || !categoryIds?.length) {
     return res.status(400).json({ error: 'Dados da pergunta incompletos.' });
   }
 
-  const allowedDifficulties = ['fácil', 'normal', 'difícil'];
+  const allowedDifficulties = ['fácil', 'normal', 'difícil', 'especialista'];
   const questionDifficulty = allowedDifficulties.includes(difficulty) ? difficulty : 'normal';
 
-  db.data.questions[idx] = {
+  // Monta o objeto atualizado
+  const updatedQuestion = {
     id,
     question,
     options,
     answer,
     categoryIds,
-    image,
     difficulty: questionDifficulty
   };
 
+  // Só adiciona o campo image se ele existir (não undefined)
+  if (typeof image !== 'undefined') {
+    updatedQuestion.image = image;
+  }
+
+  db.data.questions[idx] = updatedQuestion;
   await db.write();
-  res.json(db.data.questions[idx]);
+  res.json(updatedQuestion);
 });
 
 // Rota para deletar uma pergunta
