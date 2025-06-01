@@ -11,6 +11,8 @@ const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
 const categoryText = document.getElementById('category-text');
 const progressText = document.getElementById('progress-text');
+const questionImage = document.getElementById('question-image');
+const trashIcon = document.getElementById('trash-icon');
 
 const difficultyColors = {
   'fácil': 'green',
@@ -177,6 +179,15 @@ function showQuestion() {
   const source = params.get('source');
   const question = selectedQuestions[currentIndex];
 
+  // Exibe imagem se houver
+  if (question.image) {
+    questionImage.src = question.image;
+    questionImage.style.display = 'block';
+  } else {
+    questionImage.style.display = 'none';
+    questionImage.src = '';
+  }
+
   // Exibe a pergunta normalmente
   questionText.innerHTML = `
     ${question.question}
@@ -219,6 +230,12 @@ function showQuestion() {
     btn.addEventListener('click', () => handleAnswer(index, question.answer, btn, question.difficulty, question.id));
     optionsContainer.appendChild(btn);
   });
+
+  if (source === 'community') {
+    trashIcon.style.display = 'block';
+  } else {
+    trashIcon.style.display = 'none';
+  }
 }
 
 function handleAnswer(selectedIndex, correctIndex, selectedButton, difficulty, questionId) {
@@ -343,3 +360,7 @@ async function fetchAllUsers() {
   }
   await loadQuestions();
 })();
+
+trashIcon.onclick = function() {
+  // Sua ação aqui
+};

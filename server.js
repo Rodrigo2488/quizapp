@@ -3,6 +3,7 @@ import { initDatabases, db, communityDB, usersDB } from './db/init.js';
 import categoriesRoutes from './routes/categories.js';
 import questionsRoutes from './routes/questions.js';
 import communityRoutes from './routes/community.js';
+import loginRoutes from './routes/login.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs/promises';
@@ -105,59 +106,6 @@ app.post('/api/users/register', async (req, res) => {
     res.status(500).json({
       success: false,
       error: 'Erro ao criar conta. Tente novamente.'
-    });
-  }
-});
-
-// Login endpoint
-app.post('/api/users/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    
-    // Verificar se email e senha foram fornecidos
-    if (!email || !password) {
-      return res.status(400).json({ 
-        success: false, 
-        error: 'Email e senha são obrigatórios' 
-      });
-    }
-
-    // Carrega dados dos usuários
-    await usersDB.read();
-    
-    if (!usersDB.data || !usersDB.data.users) {
-      console.error('Estrutura do banco de dados inválida');
-      return res.status(500).json({ 
-        success: false, 
-        error: 'Erro interno do servidor' 
-      });
-    }
-
-    // Procura usuário pelo email e senha
-    const user = usersDB.data.users.find(u => 
-      u.email === email && u.password === password
-    );
-    
-    if (!user) {
-      return res.status(401).json({ 
-        success: false, 
-        error: 'Email ou senha incorretos' 
-      });
-    }
-    
-    // Remove senha antes de enviar dados do usuário
-    const { password: _, ...userData } = user;
-    
-    res.json({ 
-      success: true,
-      user: userData
-    });
-    
-  } catch (error) {
-    console.error('Erro no login:', error);
-    res.status(500).json({ 
-      success: false, 
-      error: 'Erro ao fazer login' 
     });
   }
 });
@@ -309,6 +257,7 @@ async function startServer() {
     app.use('/api/categories', categoriesRoutes);
     app.use('/api/questions', questionsRoutes);
     app.use('/api/community', communityRoutes);
+    app.use('/api/users', loginRoutes);
 
     // Rota para a página inicial
     app.get('/', (req, res) => {

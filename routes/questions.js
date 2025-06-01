@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 // Rota para adicionar uma nova pergunta
 router.post('/', async (req, res) => {
-  const { question, options, answer, categoryIds, difficulty } = req.body;
+  const { question, options, answer, categoryIds, difficulty, image } = req.body;
   if (!question || !options || options.length !== 4 || answer == null || !categoryIds?.length) {
     return res.status(400).json({ error: 'Dados da pergunta incompletos.' });
   }
@@ -28,6 +28,10 @@ router.post('/', async (req, res) => {
 
   const newId = db.data.questions.length ? Math.max(...db.data.questions.map(q => q.id)) + 1 : 1;
   const newQuestion = { id: newId, question, options, answer, categoryIds, difficulty: questionDifficulty };
+
+  // Só adiciona o campo image se ele existir
+  if (image) newQuestion.image = image;
+
   db.data.questions.push(newQuestion);
   await db.write();
   res.status(201).json(newQuestion);
@@ -54,6 +58,7 @@ router.put('/:id', async (req, res) => {
     options,
     answer,
     categoryIds,
+    image,
     difficulty: questionDifficulty
   };
 

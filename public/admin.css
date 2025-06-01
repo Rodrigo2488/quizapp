@@ -1,0 +1,158 @@
+/* Container principal do admin */
+.admin-container {
+  max-width: 700px;
+  margin: 32px auto;
+  padding: 32px 24px;
+  background: #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 0 0 24px #0006;
+}
+
+.admin-title {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #1e90ff;
+  font-size: 2rem;
+}
+
+.admin-menu {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.admin-menu button {
+  background: #1e90ff;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.admin-menu button:hover {
+  background: #0056b3;
+}
+
+.admin-section {
+  display: none;
+  margin-bottom: 32px;
+}
+.admin-section.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#image-gallery {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+#image-gallery img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+#image-gallery img.selected {
+  border: 2px solid #1e90ff;
+}
+
+#question-image-preview img {
+  max-width: 220px;
+  max-height: 120px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px #0003;
+}
+
+.dropdown-button {
+  background: #232323;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: fit-content;
+}
+.dropdown-content {
+  display: none;
+  background: #232323;
+  border: 1px solid #444;
+  border-radius: 6px;
+  margin-top: 4px;
+  padding: 6px 0;
+  position: absolute;
+  z-index: 10;
+  min-width: 180px;
+}
+.dropdown-content.active {
+  display: block;
+}
+.dropdown-content div {
+  padding: 6px 16px;
+  cursor: pointer;
+}
+.dropdown-content div.selected {
+  background: #1e90ff;
+  color: #fff;
+}
+
+#image-modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#image-modal[style*="display: flex"] {
+  display: flex !important;
+}
+
+#image-modal input[type="text"] {
+  background: #232323;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+#image-url-feedback {
+  min-height: 18px;
+}
+
+button[type="submit"], button[type="button"] {
+  background: #1e90ff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button[type="submit"]:hover, button[type="button"]:hover {
+  background: #0056b3;
+}

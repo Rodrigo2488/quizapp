@@ -1407,6 +1407,23 @@
         6
       ],
       "difficulty": "difícil"
+    },
+    {
+      "id": 91,
+      "question": "Quem é essa pessoa acima?",
+      "options": [
+        "Albert Einstein",
+        "Oppenheimer",
+        "Isaac Newton",
+        "Jean-Paul Sartre"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        1,
+        2
+      ],
+      "difficulty": "fácil",
+      "image": "http://www.agenciadenoticias.uniceub.br/wp-content/uploads/2014/03/11805300706_5b1987977c_o.jpg"
     }
   ]
 }

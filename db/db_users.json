@@ -107,6 +107,15 @@
       "avatarId": 6,
       "qi": 72,
       "createdAt": "2025-05-28T20:50:47.258Z"
+    },
+    {
+      "id": 1748796002527,
+      "username": "Jão",
+      "email": "rodrigos2488@gmail.com",
+      "password": "81239780",
+      "avatarId": 1,
+      "qi": 38,
+      "createdAt": "2025-06-01T16:40:02.527Z"
     }
   ]
 }
