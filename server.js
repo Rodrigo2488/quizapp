@@ -8,6 +8,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs/promises';
 import fsSync from 'fs';
+import multer from 'multer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -247,6 +248,25 @@ app.get('/api/images', async (req, res) => {
     console.error('Erro ao listar imagens:', error);
     res.status(500).json({ error: 'Erro ao buscar imagens de categorias.' });
   }
+});
+
+// Configuração do multer para salvar em /public/categorias
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, 'public', 'categorias'));
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const ext = path.extname(file.originalname);
+    cb(null, file.fieldname + '-' + uniqueSuffix + ext);
+  }
+});
+const upload = multer({ storage });
+
+app.post('/api/upload-categoria', upload.single('image'), (req, res) => {
+  if (!req.file) return res.status(400).json({ error: 'Nenhum arquivo enviado.' });
+  const url = `/categorias/${req.file.filename}`;
+  res.json({ url });
 });
 
 async function startServer() {

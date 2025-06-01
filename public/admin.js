@@ -91,8 +91,15 @@ document.getElementById('form-add-image').addEventListener('submit', async e => 
   e.preventDefault();
   const fd = new FormData();
   fd.append('image', document.getElementById('image-file').files[0]);
-  const res = await fetch('/api/upload',{method:'POST',body:fd});
-  if(res.ok) alert('Imagem enviada!'); else alert('Erro no upload');
+  const res = await fetch('/api/upload-categoria', { method: 'POST', body: fd });
+  if (res.ok) {
+    const data = await res.json();
+    document.getElementById('cat-image').value = data.url;
+    alert('Imagem enviada! Agora selecione-a para a categoria.');
+    loadImageGallery();
+  } else {
+    alert('Erro no upload');
+  }
 });
 
 // ✅ Função para salvar nova categoria
