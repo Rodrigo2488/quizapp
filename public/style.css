@@ -718,3 +718,53 @@ header h1 {
   color: #aaa;
   opacity: 1;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 32px 0 0 0;
+  padding: 0;
+}
+
+.pagination button {
+  background: #232323;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin: 0 2px;
+}
+
+/* .active-page DEVE vir depois de :disabled para ter prioridade */
+.pagination button.active-page {
+  background: #1e90ff !important;
+  color: #fff;
+  font-weight: bold;
+  cursor: default;
+  opacity: 1;
+}
+
+.pagination button:disabled {
+  background: #232323;
+  color: #fff;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(.active-page):not(:disabled) {
+  background: #0056b3;
+}
+
+.footer {
+  text-align: center;
+  color: #fff;
+  margin-top: 48px; /* aumenta o espaço acima */
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}

@@ -1,6 +1,10 @@
 // Função para carregar categorias do backend
+let allCategories = [];
+let currentPage = 1;
+const categoriesPerPage = 9;
+
 async function loadCategories() {
-  try {    
+  try {
     const [categoriesResponse, communityResponse] = await Promise.all([
       fetch('/api/categories'),
       fetch('/api/community/questions')
@@ -9,32 +13,10 @@ async function loadCategories() {
     const categoriesData = await categoriesResponse.json();
     const communityData = await communityResponse.json();
 
-    const container = document.getElementById('categories-container');
-    container.innerHTML = '';
+    // Ordena por número de perguntas (decrescente)
+    allCategories = categoriesData.sort((a, b) => (b.questionCount || 0) - (a.questionCount || 0));
 
-    // Carrega categorias normais
-    categoriesData.forEach(category => {
-      const questionsCount = category.questionCount || 0;
-      const card = createCategoryCard(
-        category.name,
-        category.description,
-        category.image,
-        `${questionsCount} Perguntas`,
-        category.id
-      );
-      container.appendChild(card);
-    });
-
-    // Adiciona categoria comunidade
-    const communityQuestions = communityData.questions || [];
-    const communityCard = createCategoryCard(
-      'Comunidade',
-      'Perguntas elaboradas pela comunidade.',
-      '/categorias/Comunidade.svg',
-      `${communityQuestions.length} Perguntas`,
-      'community'
-    );
-    container.appendChild(communityCard);
+    renderCategoriesPage(currentPage, communityData);
 
   } catch (error) {
     console.error('Erro ao carregar categorias:', error);
@@ -327,3 +309,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+function getTotalPages() {
+  return Math.ceil(allCategories.length / (categoriesPerPage - 1));
+}
+
+function renderPagination(page) {
+  const totalPages = getTotalPages();
+  let pagination = document.getElementById('categories-pagination');
+  if (!pagination) {
+    pagination = document.createElement('div');
+    pagination.id = 'categories-pagination';
+    pagination.className = 'pagination';
+    document.getElementById('categories-container').after(pagination);
+  }
+  pagination.innerHTML = '';
+
+  // Botão Anterior
+  const prevBtn = document.createElement('button');
+  prevBtn.textContent = 'Anterior';
+  prevBtn.disabled = currentPage === 1;
+  prevBtn.onclick = () => {
+    if (currentPage > 1) {
+      currentPage--;
+      loadCategories();
+    }
+  };
+  pagination.appendChild(prevBtn);
+
+  // Botões de página
+  for (let i = 1; i <= totalPages; i++) {
+    const pageBtn = document.createElement('button');
+    pageBtn.textContent = i;
+    if (i === currentPage) pageBtn.classList.add('active-page');
+    pageBtn.disabled = i === currentPage;
+    pageBtn.onclick = () => {
+      currentPage = i;
+      loadCategories();
+    };
+    pagination.appendChild(pageBtn);
+  }
+
+  // Botão Próxima
+  const nextBtn = document.createElement('button');
+  nextBtn.textContent = 'Próxima';
+  nextBtn.disabled = currentPage === totalPages;
+  nextBtn.onclick = () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      loadCategories();
+    }
+  };
+  pagination.appendChild(nextBtn);
+}
+
+function renderCategoriesPage(page, communityData) {
+  const container = document.getElementById('categories-container');
+  container.innerHTML = '';
+
+  // Card da Comunidade sempre em primeiro
+  const communityQuestions = communityData.questions || [];
+  const communityCard = createCategoryCard(
+    'Comunidade',
+    'Perguntas elaboradas pela comunidade.',
+    '/categorias/Comunidade.svg',
+    `${communityQuestions.length} Perguntas`,
+    'community'
+  );
+  container.appendChild(communityCard);
+
+  // Paginação das demais categorias
+  const start = (page - 1) * (categoriesPerPage - 1);
+  const end = start + (categoriesPerPage - 1);
+  const paginatedCategories = allCategories.slice(start, end);
+
+  paginatedCategories.forEach(category => {
+    const questionsCount = category.questionCount || 0;
+    const card = createCategoryCard(
+      category.name,
+      category.description,
+      category.image,
+      `${questionsCount} Perguntas`,
+      category.id
+    );
+    container.appendChild(card);
+  });
+
+  renderPagination(page);
+}

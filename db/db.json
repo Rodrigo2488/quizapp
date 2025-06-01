@@ -35,6 +35,27 @@
       "name": "Filosofia",
       "image": "/categorias/filosofia_1745957700352.png",
       "description": "Perguntas sobre filosofias e ideias que moldaram a civilização humana."
+    },
+    {
+      "id": 7,
+      "name": "Psicopedagogia",
+      "image": "/categorias/image-1748805610643-229994921.svg",
+      "description": "Perguntas sobre processos de aprendizagem, dificuldades escolares, desenvolvimento cognitivo e estratégias de intervenção psicopedagógica.",
+      "questionCount": 15
+    },
+    {
+      "id": 8,
+      "name": "Química",
+      "image": "/categorias/Ciencias.svg",
+      "description": "Perguntas sobre elementos, reações, estruturas moleculares e os princípios que regem a composição e transformação da matéria.",
+      "questionCount": 15
+    },
+    {
+      "id": 9,
+      "name": "Matemática",
+      "image": "/categorias/image-1748807532039-821087163.svg",
+      "description": "Perguntas sobre lógica, álgebra, geometria, estatística, cálculo e os conceitos que estruturam o raciocínio quantitativo e espacial.",
+      "questionCount": 15
     }
   ],
   "questions": [
@@ -1439,6 +1460,831 @@
         1
       ],
       "difficulty": "normal"
+    },
+    {
+      "id": 201,
+      "question": "O que é a psicopedagogia?",
+      "options": [
+        "Uma área da medicina voltada à neurologia",
+        "Um ramo da psicologia clínica",
+        "Uma ciência que estuda o comportamento animal",
+        "Uma área interdisciplinar que estuda o processo de aprendizagem e suas dificuldades"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 202,
+      "question": "Quem é considerado um dos pioneiros da psicopedagogia?",
+      "options": [
+        "Sigmund Freud",
+        "Jean Piaget",
+        "Ivan Pavlov",
+        "Carl Rogers"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 203,
+      "question": "Qual teoria está mais associada a Jean Piaget?",
+      "options": [
+        "Teoria do condicionamento operante",
+        "Teoria da mente",
+        "Teoria do desenvolvimento cognitivo",
+        "Teoria sociocultural"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 204,
+      "question": "O que caracteriza a dislexia?",
+      "options": [
+        "Dificuldade de memorização",
+        "Dificuldade na leitura e escrita",
+        "Déficit de atenção e hiperatividade",
+        "Dificuldade de socialização"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 205,
+      "question": "Lev Vygotsky é conhecido por qual conceito importante?",
+      "options": [
+        "Condicionamento clássico",
+        "Estágios do desenvolvimento moral",
+        "Zona de desenvolvimento proximal",
+        "Memória de trabalho"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 206,
+      "question": "Qual a principal atuação do psicopedagogo clínico?",
+      "options": [
+        "Dar aulas em escolas",
+        "Diagnosticar transtornos neurológicos",
+        "Avaliar e intervir nas dificuldades de aprendizagem",
+        "Prescrever medicamentos"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 207,
+      "question": "A discalculia está relacionada a dificuldades em:",
+      "options": [
+        "Leitura",
+        "Compreensão de textos",
+        "Cálculos matemáticos",
+        "Organização espacial"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 208,
+      "question": "A avaliação psicopedagógica deve considerar:",
+      "options": [
+        "Apenas testes de QI",
+        "Somente o desempenho escolar",
+        "Aspectos emocionais, cognitivos e sociais do aluno",
+        "Resultados de exames laboratoriais"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 209,
+      "question": "Qual instrumento é frequentemente usado na avaliação psicopedagógica?",
+      "options": [
+        "Eletroencefalograma",
+        "Desenho da figura humana",
+        "Ressonância magnética",
+        "Inventário de personalidade de Minnesota"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 210,
+      "question": "Segundo Vygotsky, o aprendizado ocorre:",
+      "options": [
+        "De forma isolada",
+        "Principalmente pela maturação biológica",
+        "Através da interação social",
+        "Apenas em ambientes escolares"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 211,
+      "question": "O termo 'aprendizagem significativa' é atribuído a qual teórico?",
+      "options": [
+        "David Ausubel",
+        "Jean Piaget",
+        "B. F. Skinner",
+        "Maria Montessori"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 212,
+      "question": "Um plano de intervenção psicopedagógica deve ser:",
+      "options": [
+        "Genérico e padrão para todos os casos",
+        "Baseado em apostilas escolares",
+        "Adaptado às necessidades individuais do aluno",
+        "Focado apenas no conteúdo curricular"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 213,
+      "question": "Qual é um dos principais objetivos da psicopedagogia institucional?",
+      "options": [
+        "Preparar laudos clínicos",
+        "Ajudar a escola a lidar com dificuldades de aprendizagem no coletivo",
+        "Realizar atendimentos individuais com pais",
+        "Desenvolver currículos escolares"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 214,
+      "question": "A psicopedagogia une conhecimentos de quais áreas?",
+      "options": [
+        "Matemática e física",
+        "Psicologia, pedagogia e neurociência",
+        "Sociologia e engenharia",
+        "Filosofia e estatística"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 215,
+      "question": "Qual conceito se refere à capacidade de refletir sobre o próprio pensamento?",
+      "options": [
+        "Metacognição",
+        "Intuição",
+        "Imaginação",
+        "Memória operacional"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "especialista"
+    },
+    {
+      "id": 216,
+      "question": "O que caracteriza a intervenção psicopedagógica?",
+      "options": [
+        "Aplicação de provas padronizadas",
+        "Uso de punições para melhorar o desempenho",
+        "Atenção individualizada e lúdica às dificuldades de aprendizagem",
+        "Repetição exaustiva de conteúdos"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 217,
+      "question": "O que é a lateralidade na aprendizagem?",
+      "options": [
+        "Preferência por uma das mãos, olhos ou pés",
+        "Capacidade de escrever com ambas as mãos",
+        "Tipo de inteligência emocional",
+        "Habilidade de reconhecer cores e formas"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 218,
+      "question": "O lúdico é importante na psicopedagogia porque:",
+      "options": [
+        "Substitui o conteúdo tradicional",
+        "É mais aceito pelas escolas",
+        "Facilita o engajamento e a aprendizagem da criança",
+        "Serve apenas como recompensa"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 219,
+      "question": "Qual profissional trabalha diretamente com o psicopedagogo em casos clínicos?",
+      "options": [
+        "Professor de educação física",
+        "Nutricionista",
+        "Psicólogo",
+        "Administrador escolar"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 220,
+      "question": "A abordagem psicopedagógica é considerada eficaz especialmente quando:",
+      "options": [
+        "Foca apenas nas dificuldades do aluno",
+        "Integra aspectos emocionais, cognitivos e contextuais",
+        "Usa exclusivamente testes padronizados",
+        "Adota uma metodologia tradicional e expositiva"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        7
+      ],
+      "difficulty": "especialista"
+    },
+    {
+      "id": 301,
+      "question": "Qual é o ultimo elemento da tabela periodica?",
+      "options": [
+        "Tennesso (Ts)",
+        "Nihônio (Nh)",
+        "Moscóvio (Mc)",
+        "Oganessônio (Og)"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 302,
+      "question": "Qual das alternativas representa um hidrocarboneto saturado?",
+      "options": [
+        "Eteno",
+        "Etino",
+        "Metano",
+        "Benzeno"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 303,
+      "question": "Qual é o pH de uma solução neutra à temperatura ambiente?",
+      "options": [
+        "0",
+        "5",
+        "7",
+        "14"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 304,
+      "question": "Em uma ligação iônica, ocorre:",
+      "options": [
+        "Compartilhamento de íos",
+        "Transferência de prótons",
+        "Transferência de elétrons",
+        "Fusão de átomos"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 305,
+      "question": "Qual composto orgânico contém o grupo funcional carboxila?",
+      "options": [
+        "Álcool",
+        "Ácido carboxílico",
+        "Amina",
+        "Éter"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 306,
+      "question": "O que representa a constante de equilíbrio (Kc) em uma reação química?",
+      "options": [
+        "A quantidade de produtos formados",
+        "A velocidade da reação",
+        "A proporção entre reagentes e produtos no equilíbrio",
+        "A energia envolvida na reação"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 307,
+      "question": "Qual desses compostos é considerado uma proteína?",
+      "options": [
+        "Glicose",
+        "Triglicerídeo",
+        "Hemoglobina",
+        "Ácido sulfúrico"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 308,
+      "question": "A espectrofotometria UV-Vis é utilizada principalmente para:",
+      "options": [
+        "Determinar a densidade de sólidos",
+        "Avaliar a acidez de soluções",
+        "Medir a absorção de luz por substâncias em solução",
+        "Analisar gases nobres"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 309,
+      "question": "Qual é o número atômico do sódio (Na)?",
+      "options": [
+        "11",
+        "12",
+        "8",
+        "14"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 310,
+      "question": "Em uma titulação ácido-base, o ponto de equivalência ocorre quando:",
+      "options": [
+        "O pH é 7",
+        "A concentração de íons hidroxila é máxima",
+        "O número de mols de ácido é igual ao de base",
+        "A temperatura atinge 100 °C"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 311,
+      "question": "Qual desses elementos é um metal alcalino-terroso?",
+      "options": [
+        "Potássio",
+        "Cálcio",
+        "Bromo",
+        "Fósforo"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 312,
+      "question": "Qual é o nome da técnica que separa componentes de uma mistura com base em sua polaridade?",
+      "options": [
+        "Centrifugação",
+        "Cromatografia",
+        "Filtração",
+        "Decantação"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 313,
+      "question": "Qual é a fórmula do ácido acético?",
+      "options": [
+        "H2SO4",
+        "HCl",
+        "CH3COOH",
+        "HNO3"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 314,
+      "question": "A entalpia (ΔH) negativa em uma reação indica que ela é:",
+      "options": [
+        "Endotérmica",
+        "Exotérmica",
+        "Reversível",
+        "Espontânea"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 315,
+      "question": "Na bioquímica, qual molécula armazena energia em suas ligações fosfato?",
+      "options": [
+        "ADN",
+        "ATP",
+        "RNA",
+        "Lipídio"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 316,
+      "question": "O ponto de ebulição da água ao nível do mar é:",
+      "options": [
+        "0 °C",
+        "50 °C",
+        "100 °C",
+        "212 °C"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 317,
+      "question": "Qual composto é um exemplo de éster?",
+      "options": [
+        "Etanol",
+        "Etanoato de etila",
+        "Ácido acético",
+        "Acetona"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 318,
+      "question": "Em físico-química, a equação de Van’t Hoff relaciona:",
+      "options": [
+        "Pressão e volume",
+        "Constante de equilíbrio e temperatura",
+        "Energia cinética e entropia",
+        "Número de mols e massa molar"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "especialista"
+    },
+    {
+      "id": 319,
+      "question": "Qual é a função do catalisador em uma reação química?",
+      "options": [
+        "Aumentar a massa dos produtos",
+        "Acelerar a reação sem ser consumido",
+        "Alterar o rendimento da reação",
+        "Ser consumido no processo"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 320,
+      "question": "O que significa 'química verde'?",
+      "options": [
+        "Uso de substâncias de coloração verde",
+        "Química voltada para processos sustentáveis e menos poluentes",
+        "Reações realizadas em ambientes naturais",
+        "Química aplicada ao cultivo de plantas"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        8
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 401,
+      "question": "Quanto é 7 × 8?",
+      "options": [
+        "54",
+        "56",
+        "64",
+        "58"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 402,
+      "question": "Qual é a fórmula da área de um triângulo?",
+      "options": [
+        "b × h",
+        "(b × h) / 2",
+        "2b + 2h",
+        "b² + h²"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 403,
+      "question": "Qual é a raiz quadrada de 144?",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 404,
+      "question": "Se f(x) = 2x + 3, qual é o valor de f(4)?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": 3,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 405,
+      "question": "O que significa dizer que duas variáveis são inversamente proporcionais?",
+      "options": [
+        "Ambas aumentam juntas",
+        "Ambas diminuem juntas",
+        "Quando uma aumenta, a outra diminui",
+        "Quando uma diminui, a outra permanece constante"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 406,
+      "question": "Qual é o valor de π (pi) com duas casas decimais?",
+      "options": [
+        "3.12",
+        "3.14",
+        "3.16",
+        "3.18"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "fácil"
+    },
+    {
+      "id": 407,
+      "question": "Qual é o volume de um cubo com aresta de 5 cm?",
+      "options": [
+        "25 cm³",
+        "100 cm³",
+        "125 cm³",
+        "150 cm³"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 408,
+      "question": "A equação x² - 4x + 4 = 0 tem:",
+      "options": [
+        "Duas raízes reais e diferentes",
+        "Duas raízes complexas",
+        "Uma raiz real e dupla",
+        "Nenhuma raiz"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 409,
+      "question": "Qual é a derivada de f(x) = x³?",
+      "options": [
+        "3x²",
+        "x²",
+        "3x",
+        "x³"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 410,
+      "question": "Qual é o determinante da matriz 2x2: [[1, 2], [3, 4]]?",
+      "options": [
+        "-2",
+        "-1",
+        "1",
+        "2"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 411,
+      "question": "Em um empréstimo com juros simples, qual fórmula é usada para calcular os juros?",
+      "options": [
+        "J = P × i × t",
+        "J = P + i + t",
+        "J = P × (1 + i)^t",
+        "J = P / (i × t)"
+      ],
+      "answer": 0,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 412,
+      "question": "Em estatística, a moda de um conjunto de dados é:",
+      "options": [
+        "A média aritmética",
+        "O valor que mais se repete",
+        "O valor central",
+        "A diferença entre o maior e o menor valor"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "id": 413,
+      "question": "Quantas diagonais tem um hexágono?",
+      "options": [
+        "6",
+        "9",
+        "12",
+        "15"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 414,
+      "question": "Se log₂(x) = 3, qual é o valor de x?",
+      "options": [
+        "6",
+        "8",
+        "9",
+        "12"
+      ],
+      "answer": 1,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "difícil"
+    },
+    {
+      "id": 415,
+      "question": "O Teorema de Gödel está relacionado a:",
+      "options": [
+        "Geometria euclidiana",
+        "Limites do cálculo integral",
+        "A incompletude dos sistemas formais",
+        "A resolução de equações quadráticas"
+      ],
+      "answer": 2,
+      "categoryIds": [
+        9
+      ],
+      "difficulty": "especialista"
     }
   ]
 }
